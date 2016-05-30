@@ -1,0 +1,64 @@
+<div class="c-service-box">
+    <p class="c-service-box-title">套餐规格</p>
+    <div class="c-service-menu-box">
+        <ul class="c-service-menu j-service-menu">
+            <li data-index="0">{tnames0}</li>
+            <li class="check c-service-middle" data-index="1">{tnames1}<i class="irecommend"></i></li>
+            <li data-index="2">{tnames2}</li>
+        </ul>
+    </div>
+    <div class="c-service-base-box">
+        <ul class="c-service-base">
+            {#basecare}
+            <li data-index={$idx} class="j-service-base{$idx} c-service-base{$idx} {@if cond="{$idx} == 1"}check{/if}">
+                <div class="c-service-list-n j-service-list-n">
+                    {#carelist}
+                    <p class="c-service-base-subitem j-service-base-subitem" data-scid="{scid}" data-scpprice="{scpprice}" data-scwprice="{scwprice}" data-subprice="{scsumprice}" data-sctoken="{sctoken}">
+                        <span class="c-service-base-cname j-service-base-cname">{scname}</span>
+                        {@eq key=scname value="更换机油"}
+                        <span class="c-service-base-scpart">{scpart}</span>
+                        {/eq}
+                        <span class="c-service-base-price {?green}{green}{/green}{?red}{red}{/red}">￥{scsumprice}元</span>
+                    </p>
+                    {/carelist}
+                </div>
+                <p class="c-service-base-total j-service-base-total" data-sump="{sumprice}">
+                    <span>合计：</span>
+                    <span class="c-service-price-total">￥{sumprice}元</span>
+                </p>
+                <div class="c-services-btn-bottom j-services-btn-bottom">
+                    <span class="c-service-taocan-info">组合说明</span>
+                    <span class="c-service-detail-info">查看明细</span>
+                </div>
+            </li>
+            {/basecare}
+        </ul>
+    </div>
+</div>
+<div class="c-service-sugs">
+    <p class="c-service-sugs-title">推荐项目</p>
+    <div class="c-service-sugs-box">
+        <ul>
+            {#sugscare}
+            <li class="c-service-sugs-item j-service-sugs-item" data-subprice="{scsumprice}" data-index={$idx} data-scpprice="{scpprice}" data-scwprice="{scwprice}" data-scid="{scid}" data-sctoken="{sctoken}">
+                <div class="c-service-sugs-list">
+                    <p class="c-service-sugs-name">
+                        <span class="j-service-sugs-name">{scname}</span>
+                        <span class="c-service-sugs-sprice">￥{scsumprice}</span>
+                    </p>
+                    <p class="c-service-sugs-sub">
+                        <span>工时费</span>
+                        <span class="c-service-sugs-ssprice">￥{scwprice}</span>
+                    </p>
+                    <p class="c-service-sugs-sub">
+                        <span>配件费</span>
+                        <span class="c-service-sugs-ssprice">￥{scpprice}</span>
+                    </p>
+                </div>
+                <i class="icircle-grey"></i>
+                <i class="iround-blue"></i>
+            </li>
+            {/sugscare}
+        </ul>
+    </div>
+</div>

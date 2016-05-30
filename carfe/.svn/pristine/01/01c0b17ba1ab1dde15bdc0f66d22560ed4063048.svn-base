@@ -1,0 +1,590 @@
+/**
+ * @file 保养车型
+ */
+define(function (require, exports, module) {
+    require('template/series');
+    require('template/search');
+    var sharp = window.sharp;
+    var dust = window.dust;
+    var sharpApi = window.sharpApi;
+    var series = $('#series');
+
+    function render() {
+        dust.render('template/series', {}, function (error, out) {
+            series.html(out);
+            var choose = require('widget/choose/js/choose');
+            choose.init({
+                dom: '.j-addcare-choose'
+            });
+            bindEvent();
+            bindCreate();
+            bindAmend();
+            bindDel();
+        });
+    }
+
+    function getData(options) {
+        var d = new $.Deferred();
+        var data = options.data;
+        sharp.get({
+            url: options.url,
+            data: data,
+            success: function (data) {
+                d.resolve(data.result);
+            }
+        });
+        return d;
+    }
+
+    function getSearch(bid, sid) {
+        return getData({
+            url: sharpApi.getmaintaincarlist,
+            data: {
+                bid: bid,
+                sid: sid
+            },
+            success: function (data) {
+
+            }
+        });
+    }
+
+    var cengineData = [
+        {'cgid': 1, 'cgname': '自然吸气'},
+        {'cgid': 2, 'cgname': '涡轮增压'},
+        {'cgid': 3, 'cgname': '机械增压'},
+        {'cgid': 4, 'cgname': '电动'},
+        {'cgid': 5, 'cgname': '混动'}
+    ];
+    var cdrivingData = [
+        {'cvid': '1', 'cvname': '两驱'},
+        {'cvid': '2', 'cvname': '四驱'}
+    ];
+    var cgearboxData = [
+        {'cbid': "MT", 'cbname': "手动"},
+        {'cbid': "AT", 'cbname': "自动"},
+        {'cbid': "DCT", 'cbname': "双离合"},
+        {'cbid': "CVT", 'cbname': "CVT"},
+        {'cbid': "AMT", 'cbname': "AMT"}
+    ];
+
+    function changeApiData(data) {
+        for (var j = 0; j < cengineData.length; j++) {
+            for (var i = 0; i < data.length; i++) {
+                if (data[i].cengine == cengineData[j].cgid) {
+                    data[i].cengine_name = cengineData[j].cgname;
+                }
+            }
+        }
+        ;
+        for (var j = 0; j < cdrivingData.length; j++) {
+            for (var i = 0; i < data.length; i++) {
+                if (data[i].cdriving == cdrivingData[j].cvid) {
+                    data[i].cdriving_name = cdrivingData[j].cvname;
+                }
+            }
+        }
+        for (var j = 0; j < cgearboxData.length; j++) {
+            for (var i = 0; i < data.length; i++) {
+                if (data[i].cgearbox == cgearboxData[j].cbid) {
+                    data[i].cgearbox_name = cgearboxData[j].cbname;
+                }
+            }
+        }
+        return data;
+    }
+
+    function renderSearch() {
+        $('.j-btn-group').addClass('hide');
+        var bid = $('.j-brand-btn').attr('data-bid');
+        var sid = $('.j-series-btn').attr('data-sid');
+        if (bid && sid) {
+            var searchList = getSearch(bid, sid);
+            searchList.then(function (data) {
+                data = changeApiData(data);
+                dust.render('template/search', {
+                    result: data
+                }, function (err, out) {
+                    $('.j-search-baoyang').html(out);
+                    $('.j-group-create').removeClass('hide');
+                    showGroup();
+                    bindEdit();
+                    uploading();
+                    bindDownload();
+                });
+            });
+        } else {
+            $('.j-search-baoyang').html("无数据,请选择汽车品牌和车系");
+        }
+    }
+
+    function bindEvent() {
+        $('.j-choose-search').on('click', function (e) {
+            renderSearch();
+        });
+    }
+
+    function showGroup() {
+        $('.j-addcare-radio').on('click', function () {
+            $('.j-btn-group').removeClass('hide');
+        });
+    }
+
+    //点击新建按钮，开始渲染dialog页面，
+    function bindCreate() {
+        $('.j-action-create').on('click', function () {
+            renderCreate();
+        })
+    }
+
+    function getFormData() {
+        var cnameDom = $('.j-dialog-cname');
+        var cname = cnameDom.val();
+        if (!cname) {
+            cnameDom.next().removeClass('hide');
+            return false;
+        }
+
+        cdiDom = $('.j-dialog-cdisplacement');
+        var cdisplacement = cdiDom.val();
+        if (!cdisplacement) {
+            cdiDom.next().removeClass('hide').html('请输入排量');
+            return false;
+        } else if (!/^[1-9]\.\d$|^0\.[1-9]$|^10.0$/.test(cdisplacement)) {
+            cdiDom.next().removeClass('hide').html('请输入0.1-10.0的一位小数');
+            return false;
+        }
+
+        var ccyDom = $('.j-dialog-ccylinder');
+        var ccylinder = ccyDom.val();
+        if (Number(ccylinder) < 1 || Number(ccylinder) > 20) {
+            ccyDom.next().removeClass('hide').html('请输入1-20的整数');
+            return false;
+        }
+
+        var bid = $.trim($(".j-brand-btn").data('bid'));
+        var sid = $.trim($(".j-series-btn").data('sid'));
+        var cengine = $('.j-dialog-cengine').val();
+        var cgearbox = $('.j-dialog-cgearbox').val();
+        var cdriving = $('.j-dialog-cdriving').val();
+        var data = {
+            cname: cname,
+            bid: bid,
+            sid: sid,
+            cdisplacement: cdisplacement,
+            cengine: cengine,
+            ccylinder: ccylinder,
+            cgearbox: cgearbox,
+            cdriving: cdriving
+        };
+        return data;
+    }
+
+    function renderCreate() {
+        var create = require('widget/dialog/js/dialog');
+        require('template/dialogContent');
+        dust.render('template/dialogContent', {
+            cgearbox: cgearboxData,
+            cengine: cengineData,
+            cdriving: cdrivingData
+        }, function (err, out) {
+            create.init({
+                dom: '.j-box-create',
+                title: '新增保养项目',
+                confirm: '确认新增',
+                content: out,
+                callback: function () {
+                    var data = getFormData();
+                    if (data) {
+                        sharp.post({
+                            url: sharpApi.addmaintaincar,
+                            data: data,
+                            success: function (res) {
+                                if (res.error == 0) {
+                                    //添加一条数据到列表下--就是重新刷新页面
+                                    $('.j-dialog').remove();
+                                    renderSearch();
+                                    $('.j-btn-group').addClass('hide');
+                                }
+                            }
+                        });
+                    }
+                }
+            });
+            checkCname();
+            checkCdisplacement();
+            checkCcylinder();
+        })
+    }
+
+    //点击修改按钮，开始渲染dialog页面，
+    function bindAmend() {
+        $('.j-action-amend').on('click', function () {
+            renderAmend();
+        })
+    }
+
+    function renderAmend() {
+        var amend = require('widget/dialog/js/dialog');
+        require('template/dialogContent');
+        var rcars = $('input[name="rcars"]:checked');
+        var elem = rcars.parents().parents().children("td");
+        var amendData = {
+            cengine: cengineData,
+            cgearbox: cgearboxData,
+            cdriving: cdrivingData,
+            cid: rcars.siblings('input[name="cid"]').val(),
+            bid: $('.j-brand-btn').data('bid'),
+            sid: $('.j-series-btn').data('sid'),
+            cname: elem.children('.j-series-cname').data('cname'),
+            cdisplacement: elem.children('.j-series-cdisplacement').data('cdisplacement'),
+            ccylinder: elem.children('.j-series-ccylinder').data('ccylinder'),
+            oldcgid: elem.children('.j-series-cengine').data('cengine'),
+            oldcbid: elem.children('.j-series-cgearbox').data('cgearbox'),
+            oldcvid: elem.children('.j-series-cdriving').data('cdriving')
+        };
+        dust.render('template/dialogContent', amendData, function (err, out) {
+            amend.init({
+                confirm: '确认修改',
+                title: '修改保养项目',
+                dom: '.j-box-amend',
+                content: out,
+                callback: function () {
+                    var data = getFormData();
+                    if (data) {
+                        data.cid = $('.j-addcare-radio:checked').next().val();
+                        sharp.post({
+                            url: sharpApi.updatemaintaincar,
+                            data: data,
+                            success: function (res) {
+                                if (res.error == 0) {
+                                    //更换数据
+                                    $('.j-dialog').remove();
+                                    renderSearch();
+                                    $('.j-btn-group').addClass('hide');
+                                }
+                            }
+                        });
+                    }
+                }
+            });
+            checkCname();
+            checkCdisplacement();
+            checkCcylinder();
+        })
+    }
+
+    //点击删除按钮，开始渲染del页面
+    function bindDel() {
+        $('.j-action-del').on('click', function () {
+            renderDel();
+        })
+    }
+
+    function renderDel() {
+        var del = require('widget/dialog/js/dialog');
+        del.init({
+            dom: '.j-box-del',
+            title: '删除保养项目',
+            content: '<p class="c-dialog-sure">真的要删除吗？</p>',
+            confirm: '确认删除',
+            callback: function () {
+                var cid = $('input[name="rcars"]:checked').siblings('input[name="cid"]').val();
+                sharp.post({
+                    url: sharpApi.deletemaintaincar,
+                    data: {
+                        cid: cid
+                    },
+                    success: function (res) {
+                        if (res.error == 0) {
+                            $('input[name="rcars"]:checked').parent().parent('tr').remove();
+                            $('.j-dialog').remove();
+                            renderSearch();
+                            $('.j-btn-group').addClass('hide');
+                        }
+                    }
+                });
+            }
+        });
+    }
+
+    function checkCname() {
+        var cnameDom = $('.j-dialog-cname');
+        cnameDom.on('keydown', function (e) {
+            cnameDom.next().addClass('hide');
+        });
+    }
+
+    function checkCdisplacement() {
+        var cdiDom = $('.j-dialog-cdisplacement');
+        cdiDom.on('keydown', function (e) {
+            cdiDom.next().addClass('hide');
+        });
+    }
+
+    function checkCcylinder() {
+        var ccyDom = $('.j-dialog-ccylinder');
+        ccyDom.on('keydown', function (e) {
+            ccyDom.next().addClass('hide');
+        });
+    }
+
+    //点击编辑
+    function bindEdit() {
+        $('.j-edit').on('click', function () {
+            var bid = $('.j-brand-btn').data('bid');
+            var sid = $('.j-series-btn').data('sid');
+            var cid = $(this).parent().data('cid');
+            renderSolutions(bid, sid, cid);
+        })
+    }
+
+    function getSolutionsBasic(data) {
+        return getData({
+            url: sharpApi.getsolutions,
+            data: data
+        });
+    }
+
+    //获取保养项目名称数据
+    function getSolutionsAll() {
+        return getData({
+            url: sharpApi.getcarelist
+        })
+    }
+
+    //渲染两个tab
+    function renderSolutionsContent(bid, sid, cid) {
+        require('template/soBasicData');
+        require('template/soAllData');
+        var sokm = $('.j-solutions-sokm option:selected').val();
+        var sopackage = $('.j-solutions-sopackage option:selected').val();
+        var sotype = $('.j-solutions-sotype option:selected').val();
+        var data = {
+            bid: bid,
+            sid: sid,
+            cid: cid,
+            sokm: sokm,
+            sopackpage: sopackage,
+            sotype: sotype
+        };
+        var basicData = getSolutionsBasic(data);
+        var allData = getSolutionsAll();
+        basicData.then(function (data) {
+            dust.render('template/soBasicData', {result: data}, function (err, out) {
+                $('.j-solutions-basic-tab').html(out);
+            });
+            allData.then(function (alldata) {
+                for (var i = 0; i < data.length; i++) {
+                    var caid = data[i].caid;
+                    for (var j = 0; j < alldata.length; j++) {
+                        var item = alldata[j];
+                        if (+item.caid === +caid) {
+                            item.checked = true;
+                        }
+                    }
+                }
+                dust.render('template/soAllData', {result: alldata}, function (err, out) {
+                    $('.j-solutions-all-tab').html(out);
+                    $('.j-solutions-sup').scrollTop(0);
+                })
+            });
+        });
+
+    }
+
+    //获取被选中的value值
+    function caidsVal() {
+        var allchecked = $('.j-solutions-all input[name="checked"]');
+        var basicSpans = $('.j-solutions-basic-tbody').find('.j-basic-span');
+        var caidsval = [];
+        var basicVal = [];
+        basicSpans.each(function () {
+            basicVal.push($(this).data('caid'));
+        });
+        for (var key in allchecked) {
+            if (allchecked[key].checked) {
+                if (jQuery.inArray(Number(allchecked[key].value), basicVal) == -1) {
+                    caidsval.push(Number(allchecked[key].value));
+                }
+            }
+        }
+        return JSON.stringify(caidsval);
+    }
+
+    function forSokm() {
+        var allSokm = [];
+        for (var i = 1; i <= 16; i++) {
+            allSokm.push(i * 5000);
+        }
+        return allSokm;
+    }
+
+    //渲染dailog中间content
+    function renderSolutions(bid, sid, cid) {
+        var solutions = require('widget/dialog/js/dialog');
+        require('template/solutions');
+        var sokmVal = forSokm();
+        dust.render('template/solutions', {allSokm: sokmVal}, function (err, out) {
+            solutions.init({
+                dom: '.j-box-edit',
+                title: '保养明细',
+                hasCancel: false,
+                confirm: '保存',
+                content: out,
+                callback: function () {
+                    //点击确认，进行回调
+                    var sokm = $('.j-solutions-sokm option:selected').val();
+                    var sopackage = $('.j-solutions-sopackage option:selected').val();
+                    var sotype = $('.j-solutions-sotype option:selected').val();
+                    var caids = caidsVal();
+                    var data = {
+                        bid: bid,
+                        sid: sid,
+                        cid: cid,
+                        sokm: sokm,
+                        sopackage: sopackage,
+                        sotype: sotype,
+                        caids: caids
+                    };
+                    sharp.post({
+                        url: sharpApi.updatesolutions,
+                        data: data,
+                        success: function (res) {
+                            if (res.error == 0) {
+                                alert('保存成功');
+                                renderSolutionsContent(bid, sid, cid);
+                            }
+                        }
+                    });
+                }
+            });
+        });
+        renderSolutionsContent(bid, sid, cid);
+        changeSokm(bid, sid, cid);
+        changeSopackage(bid, sid, cid);
+        changeSotype(bid, sid, cid);
+    }
+
+    function changeSokm(bid, sid, cid) {
+        $('.j-solutions-sokm').change(function () {
+            renderSolutionsContent(bid, sid, cid);
+        });
+    }
+
+    function changeSopackage(bid, sid, cid) {
+        $('.j-solutions-sopackage').change(function () {
+            renderSolutionsContent(bid, sid, cid);
+        });
+    }
+
+    function changeSotype(bid, sid, cid) {
+        $('.j-solutions-sotype').change(function () {
+            renderSolutionsContent(bid, sid, cid);
+        });
+    }
+
+    //点击上传文件按钮后
+    function uploading() {
+        $('.j-uploading').click(function (e) {
+            renderUploading($(this).parent().data('cid'));
+        })
+    }
+
+    function renderUploading(cid) {
+        require('template/uploading');
+        dust.render('template/uploading', {}, function (err, out) {
+            $('.j-box-uploading').html(out);
+            bindUploading(cid);
+        })
+    }
+
+    //点击上传
+    function bindUploading(cid) {
+        $('.j-solutions-confirm').click(function (e) {
+            e.preventDefault();
+            var file = $('[type="file"]').get(0).files[0];
+            var data = new FormData();
+            if (file && bdtoken) {
+                data.append('file', file);
+                data.append('bdstoken', bdtoken);
+                data.append('cid', cid);
+            }
+            var promise = getUploadingData(data);
+            promise.then(function (res) {
+                if (res.error === 0) {
+                    $('.j-uploading-success').removeClass('hide');
+                    $('.j-solutions-confirm').addClass('hide');
+                    $('.j-uploading-confirm').removeClass('hide');
+                } else {
+                    $('.j-uploading-err').removeClass('hide').text(res.message);
+                }
+            });
+        });
+
+        $('.j-uploading-close').on('click', function (e) {
+            $('.j-box-uploading').html('');
+        });
+        $('.j-uploading-confirm').on('click', function (e) {
+            $('.j-box-uploading').html('');
+        });
+    }
+
+    //POST请求上传接口
+    function getUploadingData(data) {
+        var d = new $.Deferred();
+        $.ajax({
+            url: sharpApi.addcarsolutions,
+            data: data,
+            dataType: 'json',
+            type: 'POST',
+            processData: false,
+            contentType: false,
+            beforeSend: function () {
+                sharp.setLoading();
+            }, //发送请求
+            success: function (data) {
+                d.resolve(data);
+            },
+            complete: function () {
+                sharp.disLoading();
+            }
+        });
+        return d;
+    }
+
+    //点击下载
+    function bindDownload() {
+        $('.j-download').on('click', function () {
+            var cid = $(this).parent().data('cid');
+            window.open(sharpApi.downloadcarsolutions + '?cid=' + cid);
+        })
+    }
+
+    function renderHead() {
+        var head = require('widget/head/js/head');
+        head.init({
+            title: '百度爱车后台内部管理平台',
+            dom: '#head'
+        });
+    }
+
+    function renderAside() {
+        var aside = require('widget/aside/js/aside');
+        aside.init({
+            dom: '#aside',
+            showDom: 'asideseries'
+        });
+    }
+
+    function init() {
+        renderHead();
+        renderAside();
+        render();
+        sharp.toggleContent('#series');
+    }
+
+    module.exports = {
+        init: init
+    };
+});

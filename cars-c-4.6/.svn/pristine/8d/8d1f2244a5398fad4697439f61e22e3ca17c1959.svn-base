@@ -1,0 +1,9 @@
+#player{
+    position: fixed;
+    top:50%;
+    margin-top: -90px;
+    left: 0;
+    height: 181px;
+    width: 100%;
+    z-index: 99;
+}

@@ -1,0 +1,46 @@
+<table class="c-s-table" cellspacing="0" cellpadding="0">
+    <thead>
+        <tr>
+            <th><div class="c-td-name">保养车型</div></th>
+            <th><div class="c-td-engine">发动机类型</div></th>
+            <th><div class="c-td-gearbox">变速箱类型</div></th>
+            <th><div class="c-td-displacement">排量</div></th>
+            <th><div class="c-td-driving">驱动方式</div></th>
+            <th><div class="c-td-cylinder">缸数</div></th>
+            <th><div class="c-td-price">保养价格（元）</div></th>
+        </tr>
+    </thead>
+    <tbody>
+        {#result}
+            <tr>
+                <td><div class="c-td-name">{cname}</div></td>
+                <td><div class="c-td-engine">{cengine}</div></td>
+                <td><div class="c-td-gearbox">{cgearbox}</div></td>
+                <td><div class="c-td-displacement">{cdisplacement}</div></td>
+                <td><div class="c-td-driving">{cdriving}</div></td>
+                <td><div class="c-td-cylinder">{ccylinder}</div></td>
+                <td>
+                    <div class="c-td-price" data-cid="{cid}" data-cname="{cname}">
+                        {@if cond="{hasPrice} == 0"}
+                            <span class="c-td-price-text j-s-price-create">配置价格</span>
+                        {:else}
+                            <span class="c-td-price-text j-s-price-read">查看</span>
+                            <span class="c-td-price-text j-s-price-update">修改</span>
+                            <span class="c-td-price-text j-s-price-delete">删除</span>
+                        {/if}
+                    </div>
+                </td>
+            </tr>
+        {/result}
+        {?colspan}
+            <tr class="c-s-tr-empty">
+                <td rowspan="{rowspan}" colspan="{colspan}" style="height: {trHeight}px">
+                    {?isEmpty}
+                        <i class="iemptylogo"></i>
+                        <div class="c-s-tr-empty-text">您暂无保养方案报价，请立即选择已有车系</div>
+                    {/isEmpty}
+                </td>
+            </tr>
+        {/colspan}
+    </tbody>
+</table>

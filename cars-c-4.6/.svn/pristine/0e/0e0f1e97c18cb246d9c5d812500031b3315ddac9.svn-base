@@ -1,0 +1,38 @@
+define("template/shop", function() {
+  // template/shop.dust
+  (function() {
+    dust.register("template/shop", body_0);
+
+    function body_0(chk, ctx) {
+      return chk.w("<div class=\"c-shop-container j-shop-container\"><ul class=\"c-shop-list j-shop-list\">").s(ctx.get(["result"], false), ctx, {
+        "block": body_1
+      }, {}).w("</ul></div>");
+    }
+    body_0.__dustBody = !0;
+
+    function body_1(chk, ctx) {
+      return chk.w("<li class=\"c-shop-content\"><a class=\"j-shop-box\" data-sp_no=\"").f(ctx.get(["sp_no"], false), ctx, "h").w("\" data-sp_address=\"").f(ctx.get(["sp_address"], false), ctx, "h").w("\" data-sp_name=\"").f(ctx.get(["sp_name"], false), ctx, "h").w("\" data-business_time=\"").f(ctx.get(["business_time"], false), ctx, "h").w("\" data-hotline=\"").f(ctx.get(["hotline"], false), ctx, "h").w("\" data-coordinate_x=\"").f(ctx.get(["coordinate_x"], false), ctx, "h").w("\" data-coordinate_y=\"").f(ctx.get(["coordinate_y"], false), ctx, "h").w("\"><p class=\"c-shop-name\"><span>").f(ctx.get(["sp_name"], false), ctx, "h").w("</span></p><p class=\"c-shop-address\"><span>").f(ctx.get(["sp_address"], false), ctx, "h").w("</span></p></a></li>");
+    }
+    body_1.__dustBody = !0;
+    return body_0;
+  })();
+  return function(locals, callback) {
+    var rendered;
+
+    dust.render("template/shop", locals, function(err, result) {
+      if (typeof callback === "function") {
+        try {
+          callback(err, result);
+        } catch (e) {}
+      }
+
+      if (err) {
+        throw err
+      } else {
+        rendered = result;
+      }
+    });
+
+    return rendered;
+  }
+});

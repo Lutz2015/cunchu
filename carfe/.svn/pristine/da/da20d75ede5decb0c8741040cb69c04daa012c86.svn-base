@@ -1,0 +1,31 @@
+.c-action-content {
+    padding: 15px 20px;
+}
+
+.c-dialog-item {
+    height: 30px;
+    line-height: 30px;
+    margin-top: 10px;
+}
+
+.c-dialog-label {
+    display: inline-block;
+    width: 100px;
+    text-align: left;
+}
+
+.c-dialog-sel {
+    display: inline-block;
+    width: 200px;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 5px;
+    text-align: left;
+}
+
+.c-dialog-check {
+    display: inline-block;
+    margin-left: 10px;
+    width: 200px;
+    color: #EE5757;
+}

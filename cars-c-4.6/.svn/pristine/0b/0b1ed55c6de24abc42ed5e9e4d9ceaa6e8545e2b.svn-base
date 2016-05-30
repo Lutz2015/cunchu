@@ -1,0 +1,59 @@
+define("template/services_table", function() {
+  // template/services_table.dust
+  (function() {
+    dust.register("template/services_table", body_0);
+
+    function body_0(chk, ctx) {
+      return chk.w("<div class=\"c-service-menu-box\"><ul class=\"c-service-menu j-service-table-menu\"><li data-index=\"0\">").f(ctx.get(["tnames0"], false), ctx, "h").w("</li><li class=\"c-service-middle\" data-index=\"1\">").f(ctx.get(["tnames1"], false), ctx, "h").w("</li><li data-index=\"2\">").f(ctx.get(["tnames2"], false), ctx, "h").w("</li></ul></div>").s(ctx.get(["basecare"], false), ctx, {
+        "block": body_1
+      }, {});
+    }
+    body_0.__dustBody = !0;
+
+    function body_1(chk, ctx) {
+      return chk.w("<div class=\"c-service-table j-service-table").f(ctx.get(["$idx"], false), ctx, "h").h("if", ctx, {
+        "block": body_2
+      }, {
+        "cond": body_3
+      }).w("\" data-tname=\"").f(ctx.get(["tname"], false), ctx, "h").w("\"><table><thead><tr><th>项目名称</th><th>工时费</th><th>配件费</th><th>小计</th></tr></thead><tbody>").s(ctx.get(["carelist"], false), ctx, {
+        "block": body_4
+      }, {}).w("</tbody></table></div>");
+    }
+    body_1.__dustBody = !0;
+
+    function body_2(chk, ctx) {
+      return chk.w(" check");
+    }
+    body_2.__dustBody = !0;
+
+    function body_3(chk, ctx) {
+      return chk.f(ctx.get(["$idx"], false), ctx, "h").w(" == ").f(ctx.get(["index"], false), ctx, "h");
+    }
+    body_3.__dustBody = !0;
+
+    function body_4(chk, ctx) {
+      return chk.w("<tr><td>").f(ctx.get(["scname"], false), ctx, "h").w("</td><td>￥").f(ctx.get(["scwprice"], false), ctx, "h").w("</td><td>￥").f(ctx.get(["scpprice"], false), ctx, "h").w("</td><td class=\"red\">￥").f(ctx.get(["scsumprice"], false), ctx, "h").w("</td></tr>");
+    }
+    body_4.__dustBody = !0;
+    return body_0;
+  })();
+  return function(locals, callback) {
+    var rendered;
+
+    dust.render("template/services_table", locals, function(err, result) {
+      if (typeof callback === "function") {
+        try {
+          callback(err, result);
+        } catch (e) {}
+      }
+
+      if (err) {
+        throw err
+      } else {
+        rendered = result;
+      }
+    });
+
+    return rendered;
+  }
+});

@@ -1,0 +1,46 @@
+{@eq key=status value="0"}
+<div class="c-services-foot flex-container">
+    <div class="flex-auto1 c-services-foot-box">
+        <span class="c-services-price">总价</span>
+        <span class="c-services-danwei">￥</span>
+        <span class="c-services-price-num j-services-price-num">{oprice}</span>
+    </div>
+    <a href="{payurl}/lightapp/pay/v2/order?id={oid}" class="c-orderlist-pay">
+        立即支付
+    </a>
+</div>
+{/eq}
+{@eq key=status value="2"}
+<div class="c-services-foot flex-container">
+    <div class="flex-auto1 c-services-foot-box">
+        <span class="c-services-price">总价</span>
+        <span class="c-services-danwei">￥</span>
+        <span class="c-services-price-num j-services-price-num">{oprice}</span>
+    </div>
+    <a href="{payurl}/lightapp/pay/v2/order?id={oid}" class="c-orderlist-pay">
+        立即支付
+    </a>
+</div>
+{/eq}
+<!--电子码-->
+{?ecode}
+    {?ecode_type}
+        {@eq key=status value="1"}
+            <div class="flex-container c-order-ecode">
+                <span class="flex-auto2">电子码{ecode}</span>
+                {@eq key=ecode_type value="unused"}
+                <span class="flex-auto1">未消费</span>
+                {/eq}
+                {@eq key=ecode_type value="used"}
+                <span class="flex-auto1">已消费</span>
+                {/eq}
+            </div>
+        {/eq}
+    {/ecode_type}
+{:else}
+    {@eq key=status value="1"}
+        <div class="c-order-ecode">
+            出票失败
+        </div>
+    {/eq}
+{/ecode}

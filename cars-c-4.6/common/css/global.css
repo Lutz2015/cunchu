@@ -1,0 +1,372 @@
+/*global css begin*/
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    min-width: 300px;
+    font-family: 'Microsoft YaHei', '微软雅黑', 'Hiragino Sans GB', 'Verdana', "华文细黑", 'SimSun', '宋体';
+    font-size: 14px;
+    background-color: #f2f5fa;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    -moz-user-focus: none;
+    min-width: 310px;
+}
+
+input {
+    font-size: 14px;
+    font-family: 'Hiragino Sans GB', 'Verdana', "华文细黑", 'SimSun', '宋体';
+}
+
+em {
+    font-style: normal;
+}
+
+.img {
+    width: 100%;
+    height: 100%;
+    background-size: 100% 100%;
+}
+
+.fr {
+    float: right;
+}
+
+.fl {
+    float: left;
+}
+
+.hide {
+    display: none;
+}
+
+.red {
+    color: #f82500;
+}
+
+.c-main {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow-y: hidden;
+    min-width: 310px;
+}
+
+#services,
+#payorder,
+#shop,
+#mycar,
+#car,
+#carselect,
+#home,
+#orderlists,
+#orderlist,
+#seriesselect,
+#modelselect,
+#nav,
+#addcar,
+#profile,
+#personal,
+#orderlists {
+    position: absolute;
+    overflow-y: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+#carselectcontent,
+#homecontent,
+#orderlistcontent,
+#orderdetailcontent,
+#mycarcontent,
+#carcontent,
+#shopcontent,
+#seriesselectcontent,
+#modelselectcontent,
+#addcarcontent,
+#personalcontent,
+#profilecontent,
+#orderlistscontent {
+    position: absolute;
+    top: 45px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.baidu #carselectcontent,
+.baidu #homecontent,
+.baidu #orderlistcontent,
+.baidu #orderdetailcontent,
+.baidu #mycarcontent,
+.baidu #carcontent,
+.baidu #shopcontent,
+.baidu #seriesselectcontent,
+.baidu #modelselectcontent,
+.baidu #addcarcontent,
+.baidu #personalcontent,
+.baidu #profilecontent,
+.baidu #orderlistscontent {
+    top: 0;
+}
+
+.baidu .content {
+    top: 0;
+}
+
+.content {
+    position: absolute;
+    top: 45px;
+    right: 0;
+    bottom: 50px;
+    left: 0;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.baidu #navcontent {
+    top: 0;
+}
+
+#navcontent {
+    position: absolute;
+    top: 45px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    background-color: #f3f3f3;
+}
+
+.checked {
+    color: #33B5EC;
+}
+
+.loading-n {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    margin-left: -40px;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 20px #aaa;
+}
+
+.loading-img-n {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.loading-text-n {
+    font-size: 12px;
+}
+
+.w-mask {
+    position: absolute;
+    z-index: 700;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #000;
+    opacity: .5;
+    overflow: hidden;
+}
+
+.disabled {
+    background-color: #ccc;
+}
+
+.c-error-message-box {
+    position: absolute;
+    top: 40%;
+    width: 100%;
+    text-align: center;
+}
+
+.c-error-message {
+    display: inline-block;
+    padding: 0 10px;
+    height: 50px;
+    font-size: 12px;
+    line-height: 50px;
+    text-align: center;
+    background-color: #000;
+    color: #fff;
+    opacity: 0.8;
+}
+
+/*global css end*/
+
+.c-main>div {
+    -webkit-transition: all .3s ease-in-out;
+}
+
+.c-main .active {
+    display: block;
+    -webkit-transform: translate(100%, 0);
+    -ms-transform: translate(100%, 0);
+    transform: translate(100%, 0);
+}
+
+.c-main .out {
+    -webkit-transform: translate(-100%, 0);
+    transform: translate(-100%, 0);
+}
+
+.newPageRightAnimate {
+    animation: newPageRightAnimate .2s ease-out;
+    -webkit-animation: newPageRightAnimate .2s ease-out;
+}
+
+.newPageLeftAnimate {
+    animation: newPageLeftAnimate .2s ease-out;
+    -webkit-animation: newPageLeftAnimate .2s ease-out;
+}
+
+@keyframes newPageRightAnimate {
+    0% {
+        right: -100%;
+    }
+    100% {
+        right: 0;
+    }
+}
+
+@-webkit-keyframes newPageRightAnimate {
+    0% {
+        right: -100%;
+    }
+    100% {
+        right: 0;
+    }
+}
+
+@keyframes newPageLeftAnimate {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 0;
+    }
+}
+
+@-webkit-keyframes newPageLeftAnimate {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 0;
+    }
+}
+
+.currentPageRightAnimate {
+    animation: currentPageRightAnimate .2s ease-out;
+    -webkit-animation: currentPageRightAnimate .2s ease-out;
+}
+
+.currentPageLeftAnimate {
+    animation: currentPageLeftAnimate .2s ease-out;
+    -webkit-animation: currentPageLeftAnimate .2s ease-out;
+}
+
+@keyframes currentPageRightAnimate {
+    0% {
+        right: 0;
+    }
+    100% {
+        right: -100%;
+    }
+}
+
+@-webkit-keyframes currentPageRightAnimate {
+    0% {
+        right: 0;
+    }
+    100% {
+        right: -100%;
+    }
+}
+
+@keyframes currentPageLeftAnimate {
+    0% {
+        left: 0;
+    }
+    100% {
+        left: -100%;
+    }
+}
+
+@-webkit-keyframes currentPageLeftAnimate {
+    0% {
+        left: 0;
+    }
+    100% {
+        left: -100%;
+    }
+}
+
+
+/*----------------------------------------------*/
+
+.page {
+    -webkit-transform: translate3d(0, 0, 1px);
+    transform: translate3d(0, 0, 0);
+}
+
+.page.left {
+    -webkit-transform: translate3d(-100%, 0, 1px);
+    transform: translate3d(-100%, 0, 0);
+}
+
+.page.center {
+    -webkit-transform: translate3d(0, 0, 1px);
+    transform: translate3d(0, 0, 0);
+}
+
+.page.right {
+    -webkit-transform: translate3d(100%, 0, 1px);
+    transform: translate3d(100%, 0, 0);
+}
+
+.page.transition {
+    -webkit-transition-duration: .25s;
+    transition-duration: .25s;
+}
+
+.c-loading-content {
+    display: none;
+}
+
+.c-loading-img {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 199;
+}
+
+::-webkit-scrollbar{
+    width: 1px;
+}
+::-webkit-scrollbar-button{
+    display: none;
+}
+::-webkit-scrollbar-track{
+    display: none;
+}

@@ -1,0 +1,33 @@
+{#result}
+<a class="order-list-href" href="/?appid={appid}#orderlist/{oid}">
+    <div class="c-order-list">
+        <div class="c-list-left">
+            <p class="c-list-title">{goods_name}</p>
+            {@if cond="{cat_id} == 19"}
+                <p class="c-list-time">服务时间：{service_time}</p>
+            {:else}
+                <p class="c-list-time">下单时间：{recv_time}</p>
+            {/if}
+            <p><span class="c-list-all">订单总价：</span>￥{oprice}</p>
+        </div>
+        {@if cond="{status} == 0"}
+            <span class="c-status c-status-red">
+                <div>未支付</div>
+                <button data-oid="{oid}"  class="c-pay j-pay">立即支付</button>
+            </span>
+        {/if}
+        {@if cond="{status} == 1"}<span class="c-status">已支付</span>{/if}
+        {@if cond="{status} == 2"}
+            <span class="c-status c-status-red">
+                <div>未支付</div>
+                <button data-oid="{oid}"  class="c-pay j-pay">立即支付</button>
+            </span>
+        {/if}
+        {@if cond="{status} == 3"}<span class="c-status">退款中</span>{/if}
+        {@if cond="{status} == 4"}<span class="c-status">已退款</span>{/if}
+        {@if cond="{status} == 5"}<span class="c-status c-status-dd">已关闭</span>{/if}
+    </div>
+</a>
+{/result}
+<div class="c-order-list-buttom"></div>
+

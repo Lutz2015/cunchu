@@ -1,0 +1,211 @@
+/**
+ * @file home.js
+ * @author wangbin
+ */
+define(function (require, exports, module) {
+    require('template/nav');
+    var sharp = window.sharp;
+    var dust = window.dust;
+    var sharpApi = window.sharpApi;
+    var tips = require('widget/tips/js/tips');
+    var navContainer = $('#navcontent');
+    var getappschemestate = '';
+    var getUserLen = '';
+    function bindEvent(hasAnimate) {
+        if (hasAnimate) {
+            var slider = require('widget/slider/js/slider');
+            slider.init();
+
+            $('#slider').slider();
+        }
+        var $personalCenterIslogin = $('.personalCenter').attr('data-islogin'),
+            $personalCenter = $('.personalCenter');
+        if($personalCenterIslogin == 0){
+            // $personalCenter.html('<span class="c-center-icon-login"></span>请登录');
+            $('.c-center-text').html('请登录');
+            // $('.c-center-icon-login').css({
+            //     'left':'15px'
+            // });
+            // $('.c-center-text').css({
+            //     'right':'15px'
+            // });
+            $personalCenter.on('click',function(){
+                var page = location.href;
+                sharp.appointLogin(page);
+            })
+        }else{
+            $personalCenter.on('click',function(){
+                location.href = "#personal/";
+            })
+        }
+        $('.c-nav-tel-box').on('click',function(){
+            location.href = "#profile/";
+        });
+        $('.j-left-maintain').on('click',function(e){
+            var dataIslogin = $('.j-left-maintain').attr('data-islogin');
+            if(dataIslogin == 0){
+                var page = location.href;
+                page = page.replace('#nav/', '') + '#car/';
+                sharp.setLocalData('isFromNav', true);
+                sharp.appointLogin(page);
+            }else{
+                if(fordemo == 0 && getappschemestate == '1' && getUserLen > 0){
+                    location.href = "#car/";
+                }else if(fordemo == 0 && getappschemestate == '0' ){
+                    tips.init({
+                        time: 1000,
+                        content: '没有保养数据',
+                        type: 2
+                    });
+                }else if(fordemo == 0 && getUserLen == 0){
+                    sharp.setLocalData('hasOldCar', false);
+                    sharp.setLocalData('isFromMyCar', false);
+                    sharp.setLocalData('changeOldCar', false);
+                    location.href = "#carselect/";
+                }
+            }
+        });
+
+        $('.j-right-newcar').on('click',function(e){
+            var dataIslogin = $('.j-left-maintain').attr('data-islogin');
+            if(dataIslogin == 0){
+                // alert('跳转到登陆');
+                var page = location.href;
+                sharp.appointLogin('http://vouchers.baidu.com/goods_list?appid=' + appid);
+            }else{
+                if(fordemo == 0){
+                    location.href = 'http://vouchers.baidu.com/goods_list?appid=' + appid;
+                    // location.href = 'http://vouchers.baidu.com/goods_list?appid=5494823';
+                }
+            }
+        });
+
+    }
+
+    function render() {
+        sharp.get({
+            url: sharpApi.indexGetzhida,
+            // url: "http://cq01-rdqa-dev039.cq01.baidu.com:8289/api/getzhida",
+            data: {
+                appid: appid
+            },
+            success: function (data) {
+                // sharp.phone_num = data.result.phone_num;
+                sharp.setLocalData('phone_num',data.result.phone_num);
+                if(!data.result){
+                    data.result = {};
+                    data.result.carousel = [];
+                }
+                if(!data.result.carousel){
+                    data.result.carousel = [];
+                }
+                if(data.result.carousel.length == 0){
+                    data.result.carousel = [{
+                        pic_url: "http://developer.baidu.com/static/bannercars.png",
+                        title: "",
+                        url: "#",
+                        url_type: "1"
+                    }];
+                }
+                dust.render('template/nav', data, function (error, out) {
+                    navContainer.html(out);
+                    if (data.result.carousel.length == 1) {
+                        var hasAnimate = false;
+                    } else {
+                        var hasAnimate = true;
+                    }
+                    bindEvent(hasAnimate);
+                    // if(data.result !== ''){
+                    //     var $bannerimg = $('.carsbanner').attr('data-src');
+                    //     $('.carsbanner').attr('src',$bannerimg);
+                    // }
+
+                    if($(document).width() > 320){
+                        var navWidth = $(document).width() / 2.21;
+                        $('.c-left-maintain').css({
+                            'width':navWidth
+                        });
+                        $('.c-right-newcar').css({
+                            'width':navWidth
+                        });
+                        var lineWidth = $('.j-nav-width').width() + $('.c-left-maintain').width() + $('.c-right-newcar').width();
+                        $('.c-nav-line').css({
+                            'width':lineWidth
+                        });
+                        
+                    } 
+                });
+            },
+            error: function(){
+
+            }
+        });
+        //是否支持汽车保养
+        sharp.get({
+            url: sharpApi.getappschemestate,
+            // url: 'http://cq01-rdqa-dev039.cq01.baidu.com:8289/api/getshoplist',
+            data: {
+                appid: appid
+            },
+            success: function (data) {
+                getappschemestate = data.result;
+            },
+            error:function(){
+
+            }
+        });
+
+        //是否已经有车辆信息
+        sharp.get({
+            url: sharpApi.getUserCarList,
+            data: {
+                appid: appid
+            },
+            success: function (data) {
+                getUserLen = data.result.length;
+                if(getUserLen > 0){
+                    sharp.getUserCarList = data.result;
+                }
+            },
+            error:function(){
+
+            }
+        });
+
+    }
+
+    function renderHead() {
+
+        if(sharp.isBox){
+            document.title = '百度爱车';
+            return false;
+        }else{
+            var head = require('widget/head/js/head');
+            head.init({
+                hasBack: 1,
+                hasHref: 'http://www.baidu.com',
+                title: '百度爱车',
+                dom: '#navhead',
+                loginout: 0
+            });
+        }
+        
+    }
+
+    function _init() {
+        if (!navContainer.html()) {
+            renderHead();
+
+            render();
+        }
+        if(fordemo != 0){
+            clouda.lego.smartBar.hide();
+        } 
+
+        sharp.toggleContent('#nav');
+    };
+
+    module.exports = {
+        init: _init
+    }
+});

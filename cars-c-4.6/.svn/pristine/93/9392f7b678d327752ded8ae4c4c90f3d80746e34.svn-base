@@ -1,0 +1,26 @@
+/**
+ * Created by steve on 15-9-22.
+ */
+define(function (require, exports, module) {
+    require(['http://kankan.baidu.com/Public/js/baidu_cam.js'],function(){
+    });
+    var initCam = function (id) {
+        var options = {
+            width: $(window).width(),
+            height: '181',
+            div_id: 'player',
+            type: 'live'
+        };
+        options.device_id = id;
+        var playerObj = new baidu_cam(options);
+        // 初始化对象.
+        playerObj.play();
+    };
+
+    var init = function (id) {
+        initCam(id);
+    };
+    module.exports = {
+        init: init
+    };
+});

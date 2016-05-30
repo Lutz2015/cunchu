@@ -1,0 +1,119 @@
+.c-addcar-info {
+    position: relative;
+    border-bottom: 1px solid #e7e7e7;
+    margin-left: 15px;
+    height: 45px;
+    line-height: 45px;
+    color: #778188;
+}
+
+.c-date-placeholder {
+    position: absolute;
+    top: 0;
+    left: 80px;
+    color: #ddd;
+}
+
+.c-addcar-info-car {
+    position: relative;
+    border-bottom: 1px solid #e7e7e7;
+    margin-left: 15px;
+    color: #778188;
+}
+
+.c-addcar-info-car .c-addcar-label {
+    line-height: 45px;
+}
+
+.c-addcar-info:last-of-type {
+    border: 0;
+}
+
+.c-addcar-box {
+    border-bottom: 1px solid #e7e7e7;
+    background-color: #fff;
+}
+
+.c-addcar-label {
+    margin-right: 8px;
+    color: #333;
+}
+
+.c-addcar-car-name {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    line-height: 21px;
+}
+
+.c-addcar-uccode1 {
+    display: block;
+    text-align: center;
+}
+
+.c-addcar-submit {
+    border-radius: 2px;
+    margin: 24px 15px 0 15px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background-color: #3f94ff;
+    color: #fff;
+}
+
+.c-addcar-delete {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-top: 1px solid #e7e7e7;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background-color: #fff;
+    color: #f33914;
+}
+
+.c-addcar-info .iright {
+    margin-top: 16px;
+    margin-right: 14px;
+    margin-left: 5px;
+}
+
+.c-addcar-uccode2 {
+    display: block;
+    border-left: 1px solid #e7e7e7;
+    margin-top: 11px;
+    height: 24px;
+    line-height: 24px;
+    text-transform: uppercase;
+    text-indent: 12px;
+}
+
+.c-delete-car-confirm-info {
+    margin-bottom: 12px;
+    font-size: 14px;
+    text-align: center;
+    color: #262626;
+}
+
+.c-addcar-date {
+    display: block;
+    margin-top: 12px;
+    height: 21px;
+    line-height: 21px;
+}
+
+.c-addcar-uccode1 .idown {
+    margin-left: 5px;
+}
+
+.c-addcar-car-name-box {
+    width: 26px;
+}
+
+.c-addcar-car-name-box .iright {
+    position: absolute;
+    top: 50%;
+    right: 14px;
+    margin-top: -7px;
+}

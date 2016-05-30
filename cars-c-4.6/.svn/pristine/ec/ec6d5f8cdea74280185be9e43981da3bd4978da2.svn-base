@@ -1,0 +1,52 @@
+define("template/service_info", function() {
+  // template/service_info.dust
+  (function() {
+    dust.register("template/service_info", body_0);
+
+    function body_0(chk, ctx) {
+      return chk.w("<div class=\"c-services-list j-services-list\"><ul><li class=\"c-service-title\"><span>套餐选择</span></li>").s(ctx.get(["result"], false), ctx, {
+        "block": body_1
+      }, {}).w("</ul></div>");
+    }
+    body_0.__dustBody = !0;
+
+    function body_1(chk, ctx) {
+      return chk.w("<li class=\"c-service-list-item j-service-list-item\" data-sname=\"").f(ctx.get(["scname"], false), ctx, "h").w("\" data-mileage=\"").f(ctx.get(["mile"], false), ctx, "h").w("\"><span class=\"c-service-list-item-name\">").f(ctx.get(["scname"], false), ctx, "h").h("if", ctx, {
+        "block": body_2
+      }, {
+        "cond": body_3
+      }).w("</span><i class=\"icircle-grey\"></i><i class=\"iround-blue\"></i></li>");
+    }
+    body_1.__dustBody = !0;
+
+    function body_2(chk, ctx) {
+      return chk.w("<i class=\"irecommend\"></i>");
+    }
+    body_2.__dustBody = !0;
+
+    function body_3(chk, ctx) {
+      return chk.f(ctx.get(["recommend"], false), ctx, "h").w(" == 1");
+    }
+    body_3.__dustBody = !0;
+    return body_0;
+  })();
+  return function(locals, callback) {
+    var rendered;
+
+    dust.render("template/service_info", locals, function(err, result) {
+      if (typeof callback === "function") {
+        try {
+          callback(err, result);
+        } catch (e) {}
+      }
+
+      if (err) {
+        throw err
+      } else {
+        rendered = result;
+      }
+    });
+
+    return rendered;
+  }
+});

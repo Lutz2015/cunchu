@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <script type="text/javascript">
+        (function () {
+            var ua = getUserAgentString();
+            var isIE = ((ua.indexOf("MSIE") !== -1) || (ua.indexOf("Trident") !== -1));
+            function getUserAgentString() {
+                return window.navigator ? window.navigator.userAgent : "";
+            }
+            function determineIEVersion() {
+                var version = "", re, arr;
+                if (isIE) {
+                    re = /\b(?:MSIE|rv)[: ]([^\);]+)(\)|;)/;
+                    arr = re.exec(ua);
+                    version = arr ? arr[1] : "";
+                    var docMode = getDocumentMode();
+                    if (docMode > parseFloat(version)) {
+                        return "" + docMode;
+                    }
+                }
+                return version;
+            }
+            function getDocumentMode() {
+                var doc = window.document;
+                return doc ? doc.documentMode : undefined;
+            }
+            if (isIE && determineIEVersion() < 9) {
+                location.href = "http://zhida.baidu.com/static/assets/sorry-for-ie.html";
+            }
+        })();
+    </script>
+    <title>直达号-商户后台-概况页</title>
+    <link rel="stylesheet" type="text/css" href="http://apps.bdimg.com/developer/static/merchant/common/css/0FiHR_Vxo.css">
+    <link rel="stylesheet" type="text/css" href="http://static.qyy.baidu.com/chuilei/static/mis/static/css/main.css?v=1463385803903">
+</head>
+
+<body>
+    <script type="text/javascript" src="http://zhida.baidu.com/apis/topbar?version=old"></script>
+    <script type="text/javascript">
+        try{
+            baidu.openapi.renderHeader({
+                hasZhidaLogo: 1,
+                hasAppNav: 0
+            });
+        } catch (err) {}
+    </script>
+    <div class="framework-page">
+        <aside class="framework-left framework-navbar" id="nav-bar"></aside>
+        <script type="text/javascript" src="http://zhida.baidu.com/side/bar/menulist?app_id=7122826"></script>
+        <script type="text/javascript">
+            try {
+            var navbar = new Navbar({
+                container: document.getElementById("nav-bar")
+            });
+            } catch(err) {}
+        </script>
+        <div class="framework-right" id="main-content">
+            <div class="c-head">保养数据管理</div>
+            <div class="c-content j-content"></div>
+        </div>
+    </div>
+    <div class="o-ufo">
+        <div class="qiaoshang"></div>
+    </div>
+    <footer class="framework-footer">
+        &copy; 2015 Baidu <a href="http://www.baidu.com/duty/" target="_blank">使用百度前必读</a> | <a target="_blank" href="http://www.miibeian.gov.cn">京ICP证030173号</a>
+    </footer>
+    <div class="c-mask hide j-mask"></div>
+    <div class="c-loading j-loading hide">
+        <img class="c-loading-img" src="http://developer.baidu.com/static/chuilei/buildercar/loading.GIF">
+    </div>
+    <script type="text/javascript" src="http://apps.bdimg.com/developer/static/merchant/common/js/uaRLZEpY1.js"></script>
+    <script type="text/javascript">
+        var version = "1463385803903";
+        var url = "http://static.qyy.baidu.com/chuilei/static/mis";
+        var apiurl = "";
+        var bdtoken = "{%$bdtoken%}";
+        var appid = "{%$appid%}";
+        var token = "{%$token%}";
+        var brandinfo = {
+            bid: "{%$bid%}",
+            bname: "{%$bname%}",
+            blogo: "{%$blogo%}",
+            carlogo: "http://developer.baidu.com/static/chuilei/car/"
+        }
+    </script>
+    <script src="http://lightapp.duapp.com/lightapp_builder.js"></script>
+    <script data-main="http://static.qyy.baidu.com/chuilei/static/mis/common/js/main.js?v=1463385803903" src="http://static.qyy.baidu.com/chuilei/static/mis/common/lib/lib.js?v=1463385803903" type="text/javascript" async="true" defer></script>
+</body>
+</html>

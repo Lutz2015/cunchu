@@ -1,0 +1,18 @@
+{?showLeft}
+<div class="c-s-menu-goleft j-s-menu-goleft">
+    <i class="ileft"></i>
+</div>
+{/showLeft}
+<div class="c-s-menu-list">
+    {#result}
+        <div class="c-s-menu-item j-s-menu-item {@if cond="{$idx} == 0"}checked{/if}" data-sid="{sid}">
+            <span class="c-s-menu-item-text flex-line-normal-elli">{name}</span>
+            <i class="iclose"></i>
+        </div>
+    {/result}
+</div>
+{?showRight}
+<div class="c-s-menu-goright j-s-menu-goright">
+    <i class="iright"></i>
+</div>
+{/showRight}

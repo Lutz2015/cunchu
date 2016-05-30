@@ -1,0 +1,1 @@
+require.config({baseUrl:url+"/controller",urlArgs:"v="+version,paths:{"static":"../static",template:"../template",widget:"../widget"}}),define(function(){var a=function(){routie({"":function(){require(["series"],function(a){a.init()})},"series/*":function(){require(["series"],function(a){a.init()})},"care/*":function(){require(["care"],function(a){a.init()})}})};a()});

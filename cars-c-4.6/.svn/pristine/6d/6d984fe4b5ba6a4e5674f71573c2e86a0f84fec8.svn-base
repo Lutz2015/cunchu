@@ -1,0 +1,14 @@
+<div class="c-services-list j-services-list">
+    <ul>
+        <li class="c-service-title">
+            <span>套餐选择</span>
+        </li>
+        {#result}
+            <li class="c-service-list-item j-service-list-item" data-sname="{scname}" data-mileage="{mile}">
+                <span class="c-service-list-item-name">{scname}{@if cond="{recommend} == 1"}<i class="irecommend"></i>{/if}</span>
+                <i class="icircle-grey"></i>
+                <i class="iround-blue"></i>
+            </li>
+        {/result}
+    </ul>
+</div>

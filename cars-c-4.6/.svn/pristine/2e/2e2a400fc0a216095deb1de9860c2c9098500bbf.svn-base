@@ -1,0 +1,45 @@
+define("template/nav", function() {
+  // template/nav.dust
+  (function() {
+    dust.register("template/nav", body_0);
+
+    function body_0(chk, ctx) {
+      return chk.w("<div class=\"c-img-slider j-img-slider\"><section class=\"slider\" id=\"slider\"><ul class=\"c-img-slider-list\">").s(ctx.getPath(false, ["result", "carousel"]), ctx, {
+        "block": body_1
+      }, {}).w("</ul></section></div><div class=\"c-nav-box flex-container\"><div class=\"flex-auto1\"></div><a style=\"display:block;\" class=\"c-left-maintain j-left-maintain\" data-islogin=\"").f(ctx.get(["islogin"], false), ctx, "h").w("\" href=\"javascript:void(0);\"><div class=\"c-nav-item j-nav-maintenance\"><img class=\"circle-icon\" src=\"http://developer.baidu.com/static/leftbaoyang.png\"><span class=\"c-nav-item-text\">预约保养</span></div></a><div class=\"flex-auto1 j-nav-width\"></div><a style=\"display:block;\" class=\"c-right-newcar j-right-newcar\" data-islogin=\"").f(ctx.get(["islogin"], false), ctx, "h").w("\" href=\"javascript:void(0);\"><div class=\"c-nav-item\"><img class=\"circle-icon\" src=\"http://developer.baidu.com/static/newcarright.png\"><span class=\"c-nav-item-text\">优惠购车</span></div></a><div class=\"flex-auto1\"></div></div><div class=\"c-nav-line\"></div>").s(ctx.get(["result"], false), ctx, {
+        "block": body_2
+      }, {}).w("<div data-islogin=\"").f(ctx.get(["islogin"], false), ctx, "h").w("\" class=\"personalCenter\"><div class=\"personalCenterPar\"><!-- <span class=\"c-center-icon c-center-icon-login\"></span>  --><img class=\"c-center-icon-login\" src=\"http://developer.baidu.com/static/loginpeolple.png\"><span class=\"c-center-text\">个人中心</span></div></div>");
+    }
+    body_0.__dustBody = !0;
+
+    function body_1(chk, ctx) {
+      return chk.w("<li class=\"c-img-slider-item\"><a href=\"").f(ctx.get(["url"], false), ctx, "h").w("\"><img class=\"carsbanner\" data-src=\"http://developer.baidu.com/static/bannercars.png\" src=\"").f(ctx.get(["pic_url"], false), ctx, "h").w("\"></a></li>");
+    }
+    body_1.__dustBody = !0;
+
+    function body_2(chk, ctx) {
+      return chk.w("<div class=\"c-nav-tel-box\"><a class=\"c-nav-tel\" href=\"javascript:void(0);\"><span>联系我们</span></a></div>");
+    }
+    body_2.__dustBody = !0;
+    return body_0;
+  })();
+  return function(locals, callback) {
+    var rendered;
+
+    dust.render("template/nav", locals, function(err, result) {
+      if (typeof callback === "function") {
+        try {
+          callback(err, result);
+        } catch (e) {}
+      }
+
+      if (err) {
+        throw err
+      } else {
+        rendered = result;
+      }
+    });
+
+    return rendered;
+  }
+});

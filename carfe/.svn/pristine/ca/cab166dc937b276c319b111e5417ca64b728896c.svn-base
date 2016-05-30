@@ -1,0 +1,41 @@
+<ul class="c-action-content j-action-content">
+        <li class="c-dialog-item">
+            <label class="c-dialog-label">保养方案:</label>
+            <input class="c-dialog-sel j-dialog-cname" name="cname" value="{cname}" placeholder="请输入保养方案名称"/>
+            <span class="c-dialog-check j-dialog-check hide">请输入保养方案名称</span>
+        </li>
+        <li class="c-dialog-item">
+            <label class="c-dialog-label">发动机类型:</label>
+            <select class="c-dialog-sel j-dialog-cengine" name="cengine">
+                {#cengine}
+                <option value="{cgid}" {?oldcgid}{@if cond="'{oldcgid}'=='{cgid}'"}selected{/if}{/oldcgid}>{cgname}</option>
+                {/cengine}
+            </select>
+        </li>
+        <li class="c-dialog-item">
+            <label class="c-dialog-label">变数箱类型:</label>
+            <select class="c-dialog-sel j-dialog-cgearbox"  name="cgearbox">
+                {#cgearbox}
+                <option value="{cbid}" {?oldcbid}{@if cond="'{oldcbid}'=='{cbid}'"}selected{/if}{/oldcbid}>{cbname}</option>
+                {/cgearbox}
+            </select>
+        </li>
+        <li class="c-dialog-item">
+            <label class="c-dialog-label">排量:</label>
+            <input class="c-dialog-sel j-dialog-cdisplacement" name="cdisplacement" value="{cdisplacement}" placeholder="排量，数字"/>
+            <span class="c-dialog-check j-dialog-check hide"></span>
+        </li>
+        <li class="c-dialog-item">
+            <label class="c-dialog-label">驱动方式:</label>
+            <select class="c-dialog-sel j-dialog-cdriving" name="cdriving">
+                {#cdriving}
+                <option value="{cvid}" {?oldcvid}{@if cond="'{oldcvid}'=='{cvid}'"}selected{/if}{/oldcvid}>{cvname}</option>
+                {/cdriving}
+            </select>
+        </li>
+        <li class="c-dialog-item">
+            <label class="c-dialog-label">缸数:</label>
+                <input class="c-dialog-sel j-dialog-ccylinder" name="ccylinder" value="{ccylinder}" placeholder="缸数，数字"/>
+            <span class="c-dialog-check j-dialog-check hide"></span>
+        </li>
+</ul>

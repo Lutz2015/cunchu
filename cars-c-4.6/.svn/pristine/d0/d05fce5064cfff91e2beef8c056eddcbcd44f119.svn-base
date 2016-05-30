@@ -1,0 +1,81 @@
+.c-header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 100;
+    border-bottom: 1px solid #c7c7c7;
+    text-align: center;
+    background-color: #fff;
+    color: #333;
+}
+
+.c-header-loginout {
+    margin: 6px 0;
+    font-size: 12px;
+    line-height: 30px;
+    text-align: center;
+    width: 50px;
+    color: #666;
+    display: block;
+    position: absolute;
+    right: 14px;
+    top: 0;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 4px;
+}
+
+.c-header-reload {
+    margin: 6px 0;
+    /*width: 50px;*/
+    display: block;
+    position: absolute;
+    right: 12px;
+    top: 7px;
+}
+
+.c-hide-head {
+    height: 44px;
+    width: 100%;
+}
+
+.c-header-back {
+    display: inline-block;
+    width: 50px;
+    height: 44px;
+    line-height: 44px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #cccccc;
+    font-size: 14px;
+}
+
+.c-header-title {
+    display: inline-block;
+    height: 44px;
+    line-height: 44px;
+    font-size: 18px;
+}
+
+.c-header-back-icon {
+    position: absolute;
+    top: 14px;
+    left: 16px;
+}
+
+.c-header-edit {
+    display: inline;
+    line-height: 44px;
+    font-size: 12px;
+    position: absolute;
+    right: 20px;
+    color: #959595;
+}
+
+#orderlists .c-header-back,
+#home .c-header-back,
+#nav .c-header-back {
+    display: none;
+}

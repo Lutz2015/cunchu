@@ -1,0 +1,90 @@
+define("template/service_list", function() {
+  // template/service_list.dust
+  (function() {
+    dust.register("template/service_list", body_0);
+
+    function body_0(chk, ctx) {
+      return chk.w("<div class=\"c-service-box\"><p class=\"c-service-box-title\">套餐规格</p><div class=\"c-service-menu-box\"><ul class=\"c-service-menu j-service-menu\"><li data-index=\"0\">").f(ctx.get(["tnames0"], false), ctx, "h").w("</li><li class=\"check c-service-middle\" data-index=\"1\">").f(ctx.get(["tnames1"], false), ctx, "h").w("<i class=\"irecommend\"></i></li><li data-index=\"2\">").f(ctx.get(["tnames2"], false), ctx, "h").w("</li></ul></div><div class=\"c-service-base-box\"><ul class=\"c-service-base\">").s(ctx.get(["basecare"], false), ctx, {
+        "block": body_1
+      }, {}).w("</ul></div></div><div class=\"c-service-sugs\"><p class=\"c-service-sugs-title\">推荐项目</p><div class=\"c-service-sugs-box\"><ul>").s(ctx.get(["sugscare"], false), ctx, {
+        "block": body_8
+      }, {}).w("</ul></div></div>");
+    }
+    body_0.__dustBody = !0;
+
+    function body_1(chk, ctx) {
+      return chk.w("<li data-index=").f(ctx.get(["$idx"], false), ctx, "h").w(" class=\"j-service-base").f(ctx.get(["$idx"], false), ctx, "h").w(" c-service-base").f(ctx.get(["$idx"], false), ctx, "h").w(" ").h("if", ctx, {
+        "block": body_2
+      }, {
+        "cond": body_3
+      }).w("\"><div class=\"c-service-list-n j-service-list-n\">").s(ctx.get(["carelist"], false), ctx, {
+        "block": body_4
+      }, {}).w("</div><p class=\"c-service-base-total j-service-base-total\" data-sump=\"").f(ctx.get(["sumprice"], false), ctx, "h").w("\"><span>合计：</span><span class=\"c-service-price-total\">￥").f(ctx.get(["sumprice"], false), ctx, "h").w("元</span></p><div class=\"c-services-btn-bottom j-services-btn-bottom\"><span class=\"c-service-taocan-info\">组合说明</span><span class=\"c-service-detail-info\">查看明细</span></div></li>");
+    }
+    body_1.__dustBody = !0;
+
+    function body_2(chk, ctx) {
+      return chk.w("check");
+    }
+    body_2.__dustBody = !0;
+
+    function body_3(chk, ctx) {
+      return chk.f(ctx.get(["$idx"], false), ctx, "h").w(" == 1");
+    }
+    body_3.__dustBody = !0;
+
+    function body_4(chk, ctx) {
+      return chk.w("<p class=\"c-service-base-subitem j-service-base-subitem\" data-scid=\"").f(ctx.get(["scid"], false), ctx, "h").w("\" data-scpprice=\"").f(ctx.get(["scpprice"], false), ctx, "h").w("\" data-scwprice=\"").f(ctx.get(["scwprice"], false), ctx, "h").w("\" data-subprice=\"").f(ctx.get(["scsumprice"], false), ctx, "h").w("\" data-sctoken=\"").f(ctx.get(["sctoken"], false), ctx, "h").w("\"><span class=\"c-service-base-cname j-service-base-cname\">").f(ctx.get(["scname"], false), ctx, "h").w("</span>").h("eq", ctx, {
+        "block": body_5
+      }, {
+        "key": ctx.get(["scname"], false),
+        "value": "更换机油"
+      }).w("<span class=\"c-service-base-price ").x(ctx.get(["green"], false), ctx, {
+        "block": body_6
+      }, {}).x(ctx.get(["red"], false), ctx, {
+        "block": body_7
+      }, {}).w("\">￥").f(ctx.get(["scsumprice"], false), ctx, "h").w("元</span></p>");
+    }
+    body_4.__dustBody = !0;
+
+    function body_5(chk, ctx) {
+      return chk.w("<span class=\"c-service-base-scpart\">").f(ctx.get(["scpart"], false), ctx, "h").w("</span>");
+    }
+    body_5.__dustBody = !0;
+
+    function body_6(chk, ctx) {
+      return chk.f(ctx.get(["green"], false), ctx, "h");
+    }
+    body_6.__dustBody = !0;
+
+    function body_7(chk, ctx) {
+      return chk.f(ctx.get(["red"], false), ctx, "h");
+    }
+    body_7.__dustBody = !0;
+
+    function body_8(chk, ctx) {
+      return chk.w("<li class=\"c-service-sugs-item j-service-sugs-item\" data-subprice=\"").f(ctx.get(["scsumprice"], false), ctx, "h").w("\" data-index=").f(ctx.get(["$idx"], false), ctx, "h").w(" data-scpprice=\"").f(ctx.get(["scpprice"], false), ctx, "h").w("\" data-scwprice=\"").f(ctx.get(["scwprice"], false), ctx, "h").w("\" data-scid=\"").f(ctx.get(["scid"], false), ctx, "h").w("\" data-sctoken=\"").f(ctx.get(["sctoken"], false), ctx, "h").w("\"><div class=\"c-service-sugs-list\"><p class=\"c-service-sugs-name\"><span class=\"j-service-sugs-name\">").f(ctx.get(["scname"], false), ctx, "h").w("</span><span class=\"c-service-sugs-sprice\">￥").f(ctx.get(["scsumprice"], false), ctx, "h").w("</span></p><p class=\"c-service-sugs-sub\"><span>工时费</span><span class=\"c-service-sugs-ssprice\">￥").f(ctx.get(["scwprice"], false), ctx, "h").w("</span></p><p class=\"c-service-sugs-sub\"><span>配件费</span><span class=\"c-service-sugs-ssprice\">￥").f(ctx.get(["scpprice"], false), ctx, "h").w("</span></p></div><i class=\"icircle-grey\"></i><i class=\"iround-blue\"></i></li>");
+    }
+    body_8.__dustBody = !0;
+    return body_0;
+  })();
+  return function(locals, callback) {
+    var rendered;
+
+    dust.render("template/service_list", locals, function(err, result) {
+      if (typeof callback === "function") {
+        try {
+          callback(err, result);
+        } catch (e) {}
+      }
+
+      if (err) {
+        throw err
+      } else {
+        rendered = result;
+      }
+    });
+
+    return rendered;
+  }
+});

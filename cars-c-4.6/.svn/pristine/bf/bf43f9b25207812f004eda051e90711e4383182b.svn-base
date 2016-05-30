@@ -1,0 +1,57 @@
+/**
+ * Created by steve on 15-9-1.
+ */
+define(function (require, exports, module) {
+    require('widget/dialog/html/dialog');
+    var sharp = window.sharp;
+    var dust = window.dust;
+    var options = {
+        hasCancel: false,
+        hasHead: true,
+        confirm: '知道了',
+        title: '提示',
+        content: '',
+    };
+
+    function bindEvent(opt) {
+        $('.j-dialog-confirm').on('click', function (e) {
+            var callback = opt.callback;
+            if (callback && $.isFunction(callback)) {
+                callback();
+            }
+            closeDialog();
+        });
+        $('.j-dialog-cancel').on('click', function (e) {
+            closeDialog();
+        })
+        if (opt.bindEvent && $.isFunction(opt.bindEvent)) {
+            opt.bindEvent();
+        }
+    }
+
+    function closeDialog() {
+        $('.j-dialog').remove();
+        $('.w-mask').remove();
+    }
+
+    function renderTpl(opt) {
+        var data = $.extend({}, options, opt);
+        dust.render('widget/dialog/html/dialog', data, function (error, out) {
+            $(opt.dom).append(out);
+            $('.j-dialog-content').html(opt.content);
+            if (opt.thirty) {
+                $('.j-dialog').addClass('thirty');
+            }
+            bindEvent(opt);
+        });
+    }
+
+    function _init(opt) {
+        renderTpl(opt);
+        sharp.maskToggle('.j-dialog', null, opt.dom);
+    }
+
+    module.exports = {
+        init: _init
+    };
+});

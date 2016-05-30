@@ -1,0 +1,47 @@
+/**
+ * Created by steve on 15-9-1.
+ */
+define(function (require, exports, module) {
+    var options = {
+        width: 'auto',
+        height: 'auto',
+        time: 100,
+        type: '1',
+        content: 'hi,this is a tips checked 123',
+        callback: function () {}
+    };
+    var base = {
+        body: $('body'),
+        _creatTpl: function (opt) {
+            var tpl = '<div class="c-tips j-tips"></div>';
+            base.body.append(tpl);
+            var $tips = $('.j-tips');
+            if ($tips.length != 0) {
+                $tips.addClass('c-tips-right');
+            }
+        },
+        _creat: function (opt) {
+            $('.j-tips').html(opt.content).removeClass('fadeOut animated').addClass('fadeInDown animated').show();
+            setTimeout(function () {
+                $('.j-tips').removeClass('fadeInDown animated').addClass('fadeOut animated');
+                setTimeout(function () {
+                    $('.j-tips').remove();
+                }, 1000);
+            }, opt.time);
+        },
+        _bindEvent: function (opt) {
+            base._creat(opt);
+        },
+        _init: function (opt) {
+            this.opt = opt;
+            var opt = $.extend({}, options, opt);
+            base._creatTpl(opt);
+            base._bindEvent(opt);
+        }
+    };
+    module.exports = {
+        init: base._init
+
+    };
+
+});

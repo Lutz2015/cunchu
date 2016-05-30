@@ -1,0 +1,278 @@
+.c-dialog {
+    position: fixed;
+    z-index: 1000;
+    top: 100px;
+    left: calc(50% - 380px);
+    border-radius: 5px;
+    padding: 0 30px;
+    width: 700px;
+    background: #fff;
+}
+
+.c-dialog .istep {
+    margin-top: 40px;
+    margin-bottom: 11px;
+}
+
+.c-dialog-header {
+    border-bottom: 1px solid #dfe2e3;
+    height: 50px;
+}
+
+.c-dialog-title1 {
+    display: inline-block;
+    margin-top: 20px;
+    margin-right: 16px;
+    height: 16px;
+    font-size: 16px;
+    line-height: 16px;
+}
+
+.c-dialog-title2 {
+    display: inline-block;
+    margin-top: 24px;
+    height: 12px;
+    font-size: 12px;
+    line-height: 12px;
+    color: #999;
+}
+
+.c-dialog .iclose {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    border: 18px solid #fff;
+    cursor: pointer;
+}
+
+.c-dialog-steps {
+    position: relative;
+    height: 142px;
+}
+
+.c-dialog-step {
+    position: absolute;
+    top: 0;
+    border: 1px solid #dfe2e3;
+    width: 200px;
+    height: 140px;
+    background: #fbfbfb;
+    text-align: center;
+}
+
+.c-dialog-step1 {
+    left: 8px;
+}
+
+.c-dialog-step2 {
+    left: 248px;
+}
+
+.c-dialog-step3 {
+    left: 490px;
+}
+
+.c-dialog-step:before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 95px;
+    border-top: 1px solid #dfe2e3;
+    border-right: 1px solid #dfe2e3;
+    height: 7px;
+    width: 7px;
+    background: #fafafa;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.c-dialog-step1-text,
+.c-dialog-step3-text {
+    display: block;
+    margin-top: 30px;
+    height: 32px;
+    font-size: 12px;
+    line-height: 32px;
+}
+
+.c-dialog-step1-download {
+    display: inline-block;
+    border: 1px solid #dfe2e3;
+    width: 110px;
+    height: 28px;
+    font-size: 12px;
+    line-height: 28px;
+    background: #eff3f5;
+    color: #4497ff;
+    text-align: center;
+    cursor: pointer;
+}
+
+.c-dialog-step2-text {
+    display: inline-block;
+    margin-top: 34px;
+    width: 144px;
+    height: 24px;
+    font-size: 12px;
+    line-height: 24px;
+    text-align: left;
+}
+
+.c-dialog-step3-upload {
+    display: inline-block;
+    border: 1px solid #dfe2e3;
+    width: 64px;
+    height: 28px;
+    font-size: 12px;
+    line-height: 28px;
+    background: #eff3f5;
+    color: #4497ff;
+    text-align: center;
+    cursor: pointer;
+}
+
+.c-dialog-footer {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.c-dialog-confirm {
+    display: inline-block;
+    border-radius: 2px;
+    margin-right: 20px;
+    width: 68px;
+    height: 38px;
+    line-height: 38px;
+    color: #fff;
+    background: #4497ff;
+    cursor: pointer;
+}
+
+.c-showone .c-dialog-confirm {
+    display: none;
+}
+
+.c-dialog-close {
+    display: none;
+    border-radius: 2px;
+    width: 68px;
+    height: 38px;
+    line-height: 38px;
+    color: #fff;
+    background: #4497ff;
+    cursor: pointer;
+}
+
+.c-showone .c-dialog-close {
+    display: inline-block;
+}
+
+.c-dialog-cancel {
+    display: inline-block;
+    border: 1px solid #dfe2e3;
+    border-radius: 2px;
+    width: 64px;
+    height: 36px;
+    line-height: 36px;
+    background: #f6f8f9;
+    cursor: pointer;
+}
+
+.c-showone .c-dialog-cancel {
+    display: none;
+}
+
+.c-dialog-step3-input {
+    display: none;
+}
+
+.c-uploading {
+    position: fixed;
+    z-index: 1002;
+    top: 200px;
+    left: calc(50% - 350px);
+    border-radius: 5px;
+    width: 700px;
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+}
+
+.c-uploading-timeline-mask {
+    margin-top: 30px;
+    width: 700px;
+    height: 30px;
+    background: #000;
+}
+
+.c-uploading-timeline {
+    width: 690px;
+    height: 30px;
+    background: #90ca48;
+}
+
+.c-uploading-timeline.animate {
+    animation: uploadingTimeline linear 3s;
+    -webkit-animation: uploadingTimeline linear 3s;
+}
+
+@keyframes uploadingTimeline {
+    0% {
+        width: 0;
+    }
+
+    10% {
+        width: 300px;
+    }
+
+    50% {
+        width: 310px;
+    }
+
+    60% {
+        width: 600px;
+    }
+
+    100% {
+        width: 690px;
+    }
+}
+
+@-webkit-keyframes uploadingTimeline {
+    0% {
+        width: 0;
+    }
+
+    10% {
+        width: 300px;
+    }
+
+    50% {
+        width: 310px;
+    }
+
+    60% {
+        width: 600px;
+    }
+
+    100% {
+        width: 690px;
+    }
+}
+
+.c-dialog-message {
+    overflow-y: auto;
+    height: 236px;
+    text-align: center;
+    color: #ed5565;
+}
+
+.c-dialog-content {
+    height: 236px;
+}
+
+.c-dialog-message-title {
+    height: 40px;
+    line-height: 40px;
+}

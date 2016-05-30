@@ -1,0 +1,57 @@
+define(function (require, exports, module) {
+    require('widget/head/html/head');
+    var options = {
+        dom: '', //头部所属dom，可以为class或id
+        title: "订单中心", //页面头部title信息
+        hasEdit: false, //是否有编辑按钮
+        'rightTitle': '编辑',
+        // 'reloadbtn':true,
+        callback: function () {} //opt: 0 //0代表是service页面
+    };
+
+
+    var base = {
+        _bindEvent: function (opt) {
+            $(opt.dom + ' .j-header-back').on('click', function () {
+                if ((opt.opt != undefined) && (opt.opt == 0)) {
+                    localStorage.setItem('isservice', 0);
+                }
+                if ((opt.opt != undefined) && (opt.opt == 1)) {
+                    localStorage.setItem('isservice', 1);
+                }
+                history.go(-1);
+                $('.w-mask').addClass('hide');
+                $('.w-time-choose').remove();
+            });
+            var reloadElem = $(opt.dom + ' .j-header-reload');
+            reloadElem.on('click', function () {
+                //history.go(0);
+                location.reload();
+            });
+            var editElem = $(opt.dom + ' .j-header-edit');
+            editElem.on('click', function () {
+                if ($.isFunction(opt.callback)) {
+                    opt.callback.call(this);
+                }
+                if (editElem.html() == '编辑') {
+                    editElem.html('完成');
+                } else {
+                    editElem.html('编辑');
+                }
+            });
+        },
+        _init: function (opt) {
+            var opt = $.extend({}, options, opt);
+            dust.render('widget/head/html/head', opt, function (error, out) {
+                if (opt && opt.dom) {
+                    $(opt.dom).html(out);
+                }
+            });
+            base._bindEvent(opt);
+        }
+    };
+
+    module.exports = {
+        init: base._init
+    }
+});

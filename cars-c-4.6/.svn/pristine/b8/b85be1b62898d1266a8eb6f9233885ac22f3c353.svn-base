@@ -1,0 +1,5 @@
+define(function () {
+	// widget/car/html/bx.dust
+	(function(){dust.register("widget/car/html/bx",body_0);function body_0(chk,ctx){return chk.write("<div class=\"c-car-container\"><ul>").section(ctx.get("result"),ctx,{"block":body_1},null).write("</ul></div>");}function body_1(chk,ctx){return chk.write("<li class=\"c-car-series j-car-series flex-container\" data-seriesid=\"").reference(ctx.get("series_id"),ctx,"h").write("\" data-carname=\"").reference(ctx.get("brand_subname"),ctx,"h").reference(ctx.get("series_name"),ctx,"h").write("\"><img class=\"c-car-series-logo\" data-src=\"").reference(ctx.get("series_logo"),ctx,"h").write("\" src=\"").reference(ctx.get("series_logo"),ctx,"h").write("\"><span class=\"flex-auto1 flex-line-normal-elli c-car-series-name .beixian\">").reference(ctx.get("series_name"),ctx,"h").write("</span><i class=\"c-car-arrow j-car-arrow iright\"></i></li>");}return body_0;})();
+	return "widget/car/html/bx";
+});

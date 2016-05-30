@@ -1,0 +1,55 @@
+.c-popup {
+    position: fixed;
+    top: 200px;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+    text-align: center;
+}
+
+.c-popup-box {
+    position: relative;
+    display: inline-block;
+    border-radius: 5px;
+    padding: 20px 40px;
+    background: #fff;
+}
+
+.c-popup-box .iclose {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 11px solid #fff;
+    border-top-right-radius: 5px;
+    cursor: pointer;
+}
+
+.c-popup-text {
+    height: 56px;
+    font-size: 16px;
+    line-height: 56px;
+}
+
+.c-popup-btn {
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
+}
+
+.c-popup-confirm {
+    float: left;
+    width: 68px;
+    height: 38px;
+    background: #4497ff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.c-popup-cancel {
+    float: right;
+    border: 1px solid #dfe2e3;
+    width: 68px;
+    height: 36px;
+    background: #f6f8f9;
+    cursor: pointer;
+}

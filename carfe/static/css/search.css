@@ -1,0 +1,52 @@
+.c-addcare-tab {
+    border: solid #ccc;
+    border-width: 1px 0 0 1px;
+    margin-top: 30px;
+    width: 100%;
+    text-align: center;
+}
+
+.c-addcare-thead {
+    height: 35px;
+    line-height: 35px;
+    background-color: #474F62;
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+th,
+td {
+    border: solid #ccc;
+    border-width: 0 1px 1px 0;
+}
+
+th {
+    color: #fff;
+}
+
+.c-series-span {
+    height: 30px;
+    line-height: 30px;
+    padding: 0 30px;
+}
+
+.c-download,
+.c-edit,
+.c-uploading {
+    background: #f0f3f4;
+    border: none;
+    cursor: pointer;
+    color: #0b97c4;
+}
+.c-download,
+.c-edit {
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.c-download:visited,
+.c-edit:visited,
+.c-uploading:visited {
+    color: #ccc;
+}

@@ -1,0 +1,113 @@
+.c-orderlist-tell span{
+    background: url(http://developer.baidu.com/static/phone.png) no-repeat left center;
+    background-size: 19px;
+    width: 85px;
+    display: block;
+    margin: 0 auto;
+    text-align: right;
+    color: #3f94ff;
+}
+.c-order-list{
+    display: table;
+    width: 100%;
+    table-layout:fixed;
+}
+.c-list-left{
+    width: 75%;
+    display: table-cell;
+    table-layout:fixed;
+}
+.c-status{
+    width: 24%;
+    border-left: 1px solid #e7e7e7;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: right;
+    table-layout:fixed;
+}
+.c-list-title,
+.c-list-time{
+    margin-bottom: 4px;
+    padding-right: 5px;
+}
+.c-list-title{
+    text-overflow:ellipsis;
+    overflow:hidden;
+    max-width: 95%;
+    word-break:break-all;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.c-list-time,
+.c-list-all{
+    font-size: 12px;
+    color: #778188;
+}
+.c-status-dd{
+    color: #ddd;
+}
+.c-status-red{
+    color: #f60;
+}
+.c-status-red div{
+    text-align: right;
+    color: #f60;
+}
+.c-pay{
+    width: 62px;
+    height: 26px;
+    line-height: 25px;
+    border:1px solid #f52813;
+    color: #f52813;
+    border-radius: 2px;
+    background: #fff;
+    font-size: 12px;
+    padding: 0;
+    margin-top: 3px;
+    display: block;
+    margin-left: 0;
+    text-align: center;
+    float: right;
+}
+.c-orderlist-tell{
+    position: fixed;
+    bottom: 0;
+    background: #fff;
+    line-height: 50px;
+    width: 100%;
+    font-size: 14px;
+    border-top: 1px solid #e7e7e7;
+    height: 50px;
+}
+.c-order-black{
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: .8;
+}
+.order-list-href{
+    display: block;
+    padding: 10px;
+    background: #fff;
+    color: #333;
+    overflow: hidden;
+    border-bottom: 1px solid #e7e7e7;
+    border-top: 1px solid #e7e7e7;
+    margin-bottom: 10px;
+}
+.c-order-list-buttom{
+    height: 60px;
+}
+.order-list-href:first-child{
+    margin-top: 10px;
+}
+#orderlists span.c-header-back{
+    display: block;
+}
+.c-no-order{
+    text-align: center;
+    line-height: 60px;
+    font-size: 16px;
+    color: #666;
+}

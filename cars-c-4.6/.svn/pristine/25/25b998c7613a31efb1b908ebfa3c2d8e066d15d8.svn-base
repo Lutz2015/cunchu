@@ -1,0 +1,5 @@
+define(function () {
+	// template/shop.dust
+	(function(){dust.register("template/shop",body_0);function body_0(chk,ctx){return chk.write("<div class=\"c-shop-container j-shop-container\"><ul class=\"c-shop-list j-shop-list\">").section(ctx.get("result"),ctx,{"block":body_1},null).write("</ul></div>");}function body_1(chk,ctx){return chk.write("<li class=\"c-shop-content\"><a class=\"j-shop-box\" data-sp_no=\"").reference(ctx.get("sp_no"),ctx,"h").write("\" data-sp_address=\"").reference(ctx.get("sp_address"),ctx,"h").write("\" data-sp_name=\"").reference(ctx.get("sp_name"),ctx,"h").write("\" data-business_time=\"").reference(ctx.get("business_time"),ctx,"h").write("\" data-hotline=\"").reference(ctx.get("hotline"),ctx,"h").write("\" data-coordinate_x=\"").reference(ctx.get("coordinate_x"),ctx,"h").write("\" data-coordinate_y=\"").reference(ctx.get("coordinate_y"),ctx,"h").write("\"><p class=\"c-shop-name\"><span>").reference(ctx.get("sp_name"),ctx,"h").write("</span></p><p class=\"c-shop-address\"><span>").reference(ctx.get("sp_address"),ctx,"h").write("</span></p></a></li>");}return body_0;})();
+	return "template/shop";
+});

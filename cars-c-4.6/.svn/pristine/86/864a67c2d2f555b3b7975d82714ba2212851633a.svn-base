@@ -1,0 +1,15 @@
+<div class="c-dialog j-dialog animated bounceInDown">
+    {?hasHead}
+        <div class="c-dialog-header">
+            {title}
+        </div>
+    {/hasHead}
+    <div class="c-dialog-content j-dialog-content">
+    </div>
+    <div class="c-dialog-footer {?hasCancel}c-dialog-hascancel{/hasCancel}">
+        {?hasCancel}
+        <span class="c-dialog-cancel j-dialog-cancel">取消</span>
+        {/hasCancel}
+        <span class="c-dialog-confirm j-dialog-confirm">{confirm}</span>
+    </div>
+</div>

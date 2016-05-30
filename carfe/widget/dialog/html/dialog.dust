@@ -1,0 +1,17 @@
+<div class="c-dialog j-dialog">
+    <div class="c-dialog-bg">
+        <div class="c-dialog-header">
+            <button class="c-dialog-close j-dialog-close"><span>×</span></button>
+            {?hasHead}
+            <h4 class="dialog-title" id="delete-item-label">{title}</h4>
+            {/hasHead}
+        </div>
+        <div class="c-dialog-content j-dialog-content"></div>
+        <div class="c-dialog-footer">
+            {?hasCancel}
+            <button class="c-dialog-default j-dialog-default {?hasCancel}c-dialog-hascancel{/hasCancel}">取消</button>
+            {/hasCancel}
+            <button class="c-dialog-confirm j-dialog-confirm">{confirm}</button>
+        </div>
+    </div>
+</div>

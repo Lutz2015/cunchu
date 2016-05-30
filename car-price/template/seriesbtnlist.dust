@@ -1,0 +1,6 @@
+{#currentSeries}
+    <div class="c-cur-ser-item">
+        <span class="c-cur-ser-name flex-line-normal-elli" title="{name}">{name}</span>
+        <i class="iclose" data-sid="{sid}"></i>
+    </div>
+{/currentSeries}

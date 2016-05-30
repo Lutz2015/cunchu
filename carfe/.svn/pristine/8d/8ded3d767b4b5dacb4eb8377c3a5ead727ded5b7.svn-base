@@ -1,0 +1,8 @@
+<div class="c-header">
+    <span class="c-header-logo"></span>
+    <div class="c-header-title">{title}</div>
+    <div class="c-header-list">
+        <span class="c-header-uname">{buname}</span>
+        <span class="c-logout j-logout">退出</span>
+    </div>
+</div>

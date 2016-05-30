@@ -1,0 +1,56 @@
+.c-uccode-select {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 720;
+    background-color: #f2f5fa;
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+}
+
+.c-uccode-title {
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background-color: #fff;
+    color: #333;
+}
+
+.c-uccode-list {
+    display: block;
+}
+
+.c-uccode-list-box {
+    margin: 7px auto 0;
+}
+
+.c-uccode-item {
+    display: inline-block;
+    border: 1px solid #ddd;
+    margin-top: 8px;
+    margin-right: 6px;
+    width: 28px;
+    height: 36px;
+    line-height: 35px;
+    text-align: center;
+    color: #333;
+    background-color: #fff;
+}
+
+.c-uccode-item.check {
+    border-color: #3f94ff;
+    color: #fff;
+    background-color: #3f94ff;
+}
+
+.c-uccode-submit {
+    border: 1px solid #3f94ff;
+    border-radius: 4px;
+    margin: 15px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background-color: #fff;
+    color: #3f94ff;
+}

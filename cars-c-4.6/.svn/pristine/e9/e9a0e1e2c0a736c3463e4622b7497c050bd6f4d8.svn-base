@@ -1,0 +1,31 @@
+<div class="c-service-menu-box">
+    <ul class="c-service-menu j-service-table-menu">
+        <li data-index="0">{tnames0}</li>
+        <li class="c-service-middle" data-index="1">{tnames1}</li>
+        <li data-index="2">{tnames2}</li>
+    </ul>
+</div>
+{#basecare}
+<div class="c-service-table j-service-table{$idx}{@if cond="{$idx} == {index}"} check{/if}" data-tname="{tname}">
+    <table>
+        <thead>
+            <tr>
+                <th>项目名称</th>
+                <th>工时费</th>
+                <th>配件费</th>
+                <th>小计</th>
+            </tr>
+        </thead>
+        <tbody>
+            {#carelist}
+            <tr>
+                <td>{scname}</td>
+                <td>￥{scwprice}</td>
+                <td>￥{scpprice}</td>
+                <td class="red">￥{scsumprice}</td>
+            </tr>
+            {/carelist}
+        </tbody>
+    </table>
+</div>
+{/basecare}

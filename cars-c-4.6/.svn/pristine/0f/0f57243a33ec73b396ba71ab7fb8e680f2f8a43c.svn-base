@@ -1,0 +1,51 @@
+<div class="c-order-info-shop">
+    <p class="c-order-sname">
+        <span>{sp_name}</span>
+    </p>
+    <p class="c-order-saddress">
+        <span>{sp_address}</span>
+    </p>
+</div>
+<div class="c-order-info-cc">
+    <div class="c-order-info-car flex-container">
+        <img class="c-order-car-logo" src="{carLogo}{logo}">
+        <div class="flex-auto1">
+            <div class="c-user-car-name-code-box">
+                <div class="c-user-car-name-code">
+                    <p class="c-user-car-name">{cname}</p>
+                    <p class="c-user-car-code">{uccode}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="c-order-info-care">
+        <p class="c-order-care-title">已选套餐</p>
+        {#cares}
+        <p class="c-order-care-box">
+            <span class="c-order-care-name">{name}</span>
+            <span class="c-order-care-price">￥{price}</span>
+        </p>
+        {/cares}
+    </div>
+</div>
+
+<div class="c-order-change-info">
+    <div class="c-order-item flex-container">
+        <span class="c-order-item-label">预定人</span>
+        <input maxlength="12" type="text" class="flex-auto1 j-order-user-name c-order-service-input" placeholder="请输入您的姓名">
+    </div>
+    <div class="c-order-item flex-container">
+        <span class="c-order-item-label">联系电话</span>
+        <input type="number" class="flex-auto1 j-order-user-phone c-order-service-input" placeholder="请输入您的电话" value="{phone}">
+    </div>
+    <div class="c-order-item flex-container">
+        <span class="c-order-item-label">服务时间</span>
+        <div class="c-order-date-placeholder">请选服务买日期</div>
+        <input type="date" class="flex-auto1 j-order-service-time c-order-service-input">
+        <i class="iright"></i>
+    </div>
+    <div class="c-order-item flex-container">
+        <span class="c-order-item-label">备注(选填)</span>
+        <input type="text" class="flex-auto1 j-order-remark c-order-service-input" maxlength="20" placeholder="请输入其它相关的备注">
+    </div>
+</div>

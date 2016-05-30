@@ -1,0 +1,38 @@
+define("widget/car/html/model", function() {
+  // widget/car/html/model.dust
+  (function() {
+    dust.register("widget/car/html/model", body_0);
+
+    function body_0(chk, ctx) {
+      return chk.w("<div class=\"c-car-container\"><ul>").s(ctx.get(["result"], false), ctx, {
+        "block": body_1
+      }, {}).w("</ul></div>");
+    }
+    body_0.__dustBody = !0;
+
+    function body_1(chk, ctx) {
+      return chk.w("<li class=\"c-car-model j-car-model\" data-ccode=\"").f(ctx.get(["ccode"], false), ctx, "h").w("\" data-id=\"").f(ctx.get(["cid"], false), ctx, "h").w("\" data-name=\"").f(ctx.get(["cname"], false), ctx, "h").w("\" data-logo=\"").f(ctx.get(["clogo"], false), ctx, "h").w("\" data-dkm=\"").f(ctx.get(["dkm"], false), ctx, "h").w("\" data-skm=\"").f(ctx.get(["skm"], false), ctx, "h").w("\"><span>").f(ctx.get(["cname"], false), ctx, "h").w("</span></li>");
+    }
+    body_1.__dustBody = !0;
+    return body_0;
+  })();
+  return function(locals, callback) {
+    var rendered;
+
+    dust.render("widget/car/html/model", locals, function(err, result) {
+      if (typeof callback === "function") {
+        try {
+          callback(err, result);
+        } catch (e) {}
+      }
+
+      if (err) {
+        throw err
+      } else {
+        rendered = result;
+      }
+    });
+
+    return rendered;
+  }
+});

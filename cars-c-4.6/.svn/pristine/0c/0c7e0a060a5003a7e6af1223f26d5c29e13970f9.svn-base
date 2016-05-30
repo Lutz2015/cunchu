@@ -1,0 +1,19 @@
+<div class="c-header j-header">
+    {?hasBack}
+        <span class="c-header-back j-header-back">
+            <i class="ileft c-header-back-icon"></i>
+        </span>
+    {/hasBack}
+    <div class="c-header-title j-header-title">{title}</div>
+    {?hasEdit}
+        <span class="c-header-edit j-header-edit">{rightTitle}</span>
+    {/hasEdit}
+    {?loginoutshow}
+        {?loginout}
+            <a class="c-header-loginout" href="http://passport.rdtest.baidu.com/?logout">退出</a>
+        {/loginout}
+    {/loginoutshow}
+    {?reloadbtn}
+        <a class="c-header-reload j-header-reload irefresh" href="javascript:void(0);" ></a>
+    {/reloadbtn}
+</div>

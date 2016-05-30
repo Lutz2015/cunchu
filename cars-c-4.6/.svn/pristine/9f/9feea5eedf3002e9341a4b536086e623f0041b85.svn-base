@@ -1,0 +1,18 @@
+{?showTitle}
+    <li class="c-user-car-title">
+        <span>请您选择需要保养的车辆</span>
+    </li>
+{/showTitle}
+{#result}
+    <li class="j-user-car c-user-car flex-container" data-uccode="{uccode}" data-ucid="{ucid}" data-cid="{cid}" data-bid="{bid}" data-sid="{sid}" data-ucdate="{ucdate}" data-logo="{blogo}" data-ucid="{ucid}" data-ucmile="{ucmile}" data-skm="{skm}" data-dkm="{dkm}">
+        <img class="c-user-car-logo" src="{carLogo}{blogo}">
+        <div class="flex-auto1">
+            <div class="c-user-car-name-code-box">
+                <div class="c-user-car-name-code">
+                    <p class="c-user-car-name">{cname}</p>
+                    <p class="c-user-car-code">{uccode}</p>
+                </div>
+            </div>
+        </div>
+    </li>
+{/result}

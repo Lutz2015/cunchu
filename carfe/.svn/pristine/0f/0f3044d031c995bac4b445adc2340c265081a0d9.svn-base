@@ -1,0 +1,19 @@
+<div class="c-choose-content">
+    <form action="" class="c-choose-form j-choose-form">
+        <div class="c-choose-label j-choose-brand fl">
+            <label class="c-label">品牌:</label><input type="text" data-bid="{bid}" class="c-choose-brand j-brand-btn" readonly="readonly"/>
+            <i class="c-label-iconfont"></i>
+            <div class="c-choose-down c-brand-down j-choose-brand-down hide">
+
+            </div>
+        </div>
+        <div class="c-choose-label j-choose-series fl">
+            <label class="c-label">车系:</label><input type="text" data-sid="{sid}" class="c-choose-series j-series-btn addcar-color" readonly="readonly"/>
+            <i class="c-label-iconfont"></i>
+            <div class="c-choose-down j-choose-series-down hide">
+
+            </div>
+        </div>
+        <div class="fl"><input type="button" value="搜索" class="c-choose-search j-choose-search"/></div>
+    </form>
+</div>

@@ -1,0 +1,51 @@
+.b-confirm,
+.b-delete,
+.b-confirm-disabled {
+    position: relative;
+    display: inline-block;
+    background: url(/common/img/base_button.png) no-repeat;
+    background-size: 122px 180px;
+}
+
+.b-confirm {
+    width: 75px;
+    height: 25px;
+    background-position: 0 -71px;
+}
+
+.b-next {
+    display: inline-block;
+    width: 120px;
+    height: 50px;
+    font-size: 14px;
+    line-height: 50px;
+    text-align: center;
+    background-color: #f64e3c;
+    color: #fff;
+}
+
+.b-confirm-disabled {
+    width: 75px;
+    height: 25px;
+    background-position: 0 -43px;
+}
+
+.b-delete {
+    width: 70px;
+    height: 40px;
+    background-position: 0 0;
+}
+
+.b-pay-order {
+    /*width: 122px;
+    height: 40px;
+    background-position: 0 -139px;*/
+    text-align: center;
+    line-height: 50px;
+    font-size: 18px;
+    width: 122px;
+    height: 50px;
+    display: inline-block;
+    color: #fff;
+    background-color: #F0931A;
+}

@@ -1,0 +1,11 @@
+<div class="c-car-container">
+    <ul>
+        {#result}
+            <li class="c-car-series j-car-series flex-container" data-seriesid="{series_id}" data-carname="{brand_subname}{series_name}">
+                <img class="c-car-series-logo" data-src="{series_logo}" src="{series_logo}">
+                <span class="flex-auto1 flex-line-normal-elli c-car-series-name .beixian">{series_name}</span>
+                <i class="c-car-arrow j-car-arrow iright"></i>
+            </li>
+        {/result}
+    </ul>
+</div>

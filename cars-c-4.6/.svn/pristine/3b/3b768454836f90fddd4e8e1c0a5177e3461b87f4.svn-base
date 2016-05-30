@@ -1,0 +1,13 @@
+<div class="c-uccode-select">
+    <p class="c-uccode-title">请选择牌照地区</p>
+    <div class="c-uccode-list-box">
+        <ul class="c-uccode-list j-uccode-list">
+            {#words}
+                <li class="c-uccode-item {@eq key=key value="{.}"}check{/eq}">{.}</li>
+            {/words}
+        </ul>
+    </div>
+    <div class="c-uccode-submit j-uccode-submit">
+        <span>完成</span>
+    </div>
+</div>

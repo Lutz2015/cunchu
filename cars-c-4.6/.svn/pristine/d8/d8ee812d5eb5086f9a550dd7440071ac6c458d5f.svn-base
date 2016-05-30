@@ -1,0 +1,5 @@
+define(function () {
+	// widget/car/html/model.dust
+	(function(){dust.register("widget/car/html/model",body_0);function body_0(chk,ctx){return chk.write("<div class=\"c-car-container\"><ul>").section(ctx.get("result"),ctx,{"block":body_1},null).write("</ul></div>");}function body_1(chk,ctx){return chk.write("<li class=\"c-car-model j-car-model\" data-ccode=\"").reference(ctx.get("ccode"),ctx,"h").write("\" data-id=\"").reference(ctx.get("cid"),ctx,"h").write("\" data-name=\"").reference(ctx.get("cname"),ctx,"h").write("\" data-logo=\"").reference(ctx.get("clogo"),ctx,"h").write("\" data-dkm=\"").reference(ctx.get("dkm"),ctx,"h").write("\" data-skm=\"").reference(ctx.get("skm"),ctx,"h").write("\"><span>").reference(ctx.get("cname"),ctx,"h").write("</span></li>");}return body_0;})();
+	return "widget/car/html/model";
+});

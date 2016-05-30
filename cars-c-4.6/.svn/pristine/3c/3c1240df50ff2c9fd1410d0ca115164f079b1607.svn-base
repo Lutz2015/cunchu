@@ -1,0 +1,385 @@
+.c-orderlist-infos{
+    margin-top: 10px;
+    background-color: #ffffff;
+    margin: 0 auto;
+    border-top: 10px solid #f2f5f9;
+    border-radius: 4px;
+}
+.c-orderlist-infos p{
+    margin-top: 10px;
+}
+.c-orderlist-title{
+    /*background-color: #f4f4f4;*/
+    position: relative;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px dotted #ebebeb;
+}
+.c-orderlist-title span{
+    display: inline-block;
+    height: 26px;
+    /*background-color: yellow;*/
+    /*line-height: 26px;*/
+    color: #333333;
+}
+.c-orderlist-title .c-orderlist-title-info{
+    float: left;
+    margin-left: 10px;
+    font-size: 16px
+
+}
+.c-orderlist-title .c-orderlist-title-refund{
+    float: right;
+    margin-right: 8px;
+    color: #ffffff;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 14px;
+    background-color: #e76263;
+    margin-top: 7px;
+    line-height: 26px;
+}
+.c-order-pay-total{
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    margin-left: 10px;
+}
+.c-order-pay-total span{
+    font-size: 16px;
+    color: #f3271b;
+}
+.c-orderlist-pay{
+    display: inline-block;
+    width: 120px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background-color: #f64e3c;
+    color: #fff;
+}
+.c-orderlist-content{
+    margin-left: 15px;
+    margin-right: 10px;
+    padding-bottom: 10px;
+}
+.c-orderlist-content .c-orderlist-number{
+    color: #788189;
+    margin-top: 10px;
+    font-size: 12px;
+
+    overflow: hidden;
+    /*max-width: 95%;*/
+    word-break: break-all;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+}
+.c-orderlist-status{
+    font-size: 12px;
+    margin-top: 15px;
+}
+.margintop10{
+    margin-top: 10px;
+}
+.c-orderlist-status-img{
+    text-align: center;
+    margin-top: -11px;
+    width: 100%;
+    font-size: 12px;
+}
+.c-orderlist-line{
+    height: 2px;
+    width: 80%;
+    margin: 0 auto;
+    background-color: #f4f4f4;
+    margin-top: 15px;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.c-order-servers-info{
+    background-color: #ffffff;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin: 10px auto 0;
+    border-top: 1px solid #f4f4f4;
+    margin-bottom: 10px;
+}
+
+.c-order-servers-title{
+    border-bottom: 1px solid #f4f4f4;
+    position: relative;
+    height: 40px;
+    line-height: 40px;
+    /*padding-left: 10px;*/
+    font-size: 14px;
+    color: #333333;
+}
+.c-servers-cars-info{
+    margin-left: 10px;
+    padding-bottom: 10px;
+}
+.c-servers-cars-info p{
+    margin-top: 15px;
+}
+.c-servers-cars-info p span{
+    margin-right: 10px;
+}
+
+.c-orderlist-cam{
+    width:165px ;
+    height: 30px;
+    margin: 30px auto;
+    background-color: #ebebeb;
+    line-height: 30px;
+    text-align: center;
+    color: #999999;
+}
+.c-orderlist-cam-icon{
+    display: inline-block;
+    width: 22px;
+    height: 16px;
+    background: url(http://developer.baidu.com/static/chuilei/cam.png) no-repeat ;
+    vertical-align:middle;
+    margin-right: 10px;
+    background-size: 20px;
+}
+.breakWords{
+    word-break:keep-all;/* 不换行 */
+
+    white-space:nowrap;/* 不换行 */
+
+    overflow:hidden;/* 内容超出宽度时隐藏超出部分的内容 */
+
+    text-overflow:ellipsis;
+}
+.c-order-servers-status{
+    height: 50px;
+    width: 95%;
+    margin: 0 auto;
+    border-top: 1px solid #eaeaea;
+    background-color: #ffffff;
+    margin-top: 1px;
+    position: relative;
+}
+.c-order-servers-status-info{
+    /*height: 50px;*/
+    width: 92%;
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #fcf9e8;
+    color: #f17140;
+}
+.c-order-status-info{
+    margin-bottom: -2px;
+    margin-right: 5px;
+}
+.c-order-servers-status span{
+    display: inline-block;
+    /*width: 30px;*/
+    height: 23px;
+    line-height: 23px;
+    padding: 2px 10px 2px 10px;
+    border-radius: 15px;
+}
+.c-order-servers-status .btn-left{
+    background-color: #ffffff;
+    color: #e76263;
+    float: left;
+    border: 1px solid #e76263;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.c-order-servers-status .btn-right{
+    background-color: #ffffff;
+    color: #30b72a;
+    float: right;
+    border: 1px solid #30b72a;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+.c-order-sure-pay{
+    position: absolute;
+    right: 3px;
+    color: #30b72a;
+    /*border: 1px solid red;*/
+    top: 33px;
+}
+.c-order-table{
+    border: none;
+    border-bottom: 1px solid #e7e7e7;
+    border-collapse:separate;
+    padding-bottom: 10px;
+}
+.c-order-table thead th{
+    background-color: #ffffff;
+    font-weight: normal;
+    border: none;
+}
+.c-order-table tbody tr{
+    height: 22px;
+    line-height: 22px;
+}
+.c-order-table td{
+    border: none;
+}
+.c-order-total{
+    height: 40px;
+    line-height: 40px;
+    /*color: #f49a7f;*/
+    text-align: right;
+}
+.c-order-total>:first-child{
+    display: inline-block;
+    float: left;
+}
+.c-order-total>:nth-child(2){
+    display: inline-block;
+    float: right;
+    color: #f6281b;
+}
+
+.c-order-servers-status-tips{
+    font-size: 13px;
+}
+.textareaclass{
+    margin: 0px;
+    padding: 0px;
+    border-style: none;
+    border-width: 0px;
+    border: 1px solid #dcdcdc;
+    font-size: 14px;
+    word-wrap: break-word;
+    line-height: 18px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    outline: medium none;
+    width: 98%;
+    height: 108px;
+    margin: 0 auto;
+    resize: none;
+    margin-bottom: 10px;
+}
+.textarea-tel{
+    display: block;
+    padding-left: 34px;
+    padding-right: 34px;
+    background-color: #228ff4;
+    color: #ffffff;
+    margin: 0 auto;
+    width: 105px;
+    height: 24px;
+    line-height: 24px;
+    border-radius: 14px;
+    margin-bottom: 7px;
+}
+.c-order-uname{}
+.c-order-uphone{
+    float: right;
+}
+.c-order-info-color{
+    color: #788189;
+}
+.c-orderlist-address{
+    color: #000000;
+    font-size: 14px;
+}
+.c-order-check{
+    height: 48px;
+    line-height: 48px;
+}
+.c-order-check-infos{
+    height: 30px;
+    line-height: 36px;
+    font-size: 15px;
+    color: #000;
+}
+#orderdetailcontent{
+    bottom: 0;
+    top:32px;
+}
+.c-order-tuikuan{
+    height: 50px;
+    border-top: 1px solid #ccc;
+    line-height: 50px;
+}
+.c-order-tuikuan span{
+    display: inline-block;
+    float: right;
+    border: 1px solid #479afb;
+    text-align: center;
+    border-radius: 4px;
+    height: 20px;
+    width: 62px;
+    line-height: 20px;
+    margin-top: 13px;
+    padding: 0 2px 0 2px;
+    color: #479afb;
+}
+.c-order-car-infos{
+    border-bottom: 1px solid #e7e7e7;
+    height: 64px;
+}
+.c-order-car-infos img{
+    margin-top: 4px;
+}
+.c-order-car-infos-logo{
+    display: inline-block;
+    width: 90px;
+    height: 40px;
+}
+.c-order-car-infos-title{
+    margin-left: 10px;
+}
+.c-order-car-chil>:nth-child(1){
+    font-size: 13px;
+    color: #000000;
+}
+.c-order-car-chil>:nth-child(2){
+    font-size: 13px;
+    color: #000000;
+}
+
+.c-order-ecode{
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    text-indent: 10px;
+    background-color: #fff;
+    color: #ed5565;
+}
+.c-order-ecode >:nth-child(1){
+    display: block;
+    padding-left: 10px;
+    text-align: left;
+    color: #000000;
+}
+.c-order-ecode >:nth-child(2){
+    display: block;
+    padding-right: 10px;
+    text-align: right;
+    color: #000000;
+}
+.c-order-dialog-refund{
+    text-align: center;
+    margin-bottom: 10px;
+}
+.c-order-car-par{
+    display: table;
+    height: 64px;
+}
+.c-order-car-chil{
+    display: table-cell;
+    vertical-align: middle;
+}
+.c-order-mar0{
+    margin-top: 0 !important;
+}
+.c-orderlist-newstatus{
+    font-size: 16px !important;
+}

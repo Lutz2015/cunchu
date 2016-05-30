@@ -1,0 +1,37 @@
+<div class="c-brand">
+    <img class="c-brand-logo" src="{brand.carlogo}{brand.blogo}">
+    <div class="c-brand-name">{brand.bname}</div>
+</div>
+<div class="c-ser-container">
+    <label class="c-cur-ser-label">已有车系:</label>
+    <div class="c-current-series j-current-series hide">
+        <div class="c-cur-seri-box j-cur-seri-box">
+        </div>
+        <div class="c-cur-ser-unfold j-cur-ser-unfold hide">
+            <span class="j-cur-ser-unfold-text">展开全部</span>
+            <i class="idown"></i>
+        </div>
+    </div>
+    <div class="c-series j-series">
+        <div class="c-series-btn j-series-btn">
+            选择车系
+            <i class="idown"></i>
+        </div>
+        <div class="c-series-box j-series-box hide">
+            <div class="c-series-list">
+                {#series}
+                    <div class="c-series-title">{key}</div>
+                    {#cars}
+                        <div class="c-series-item">
+                            <input type="checkbox" id="ser-{sid}" name="seriesCheckbox" value="{sid}" data-name="{key}{sname}" {?checked}checked="checked"{/checked}>
+                            <label for="ser-{sid}">{sname}</label>
+                        </div>
+                    {/cars}
+                {/series}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="c-series-menu j-series-menu"></div>
+<div class="c-series-table j-series-table"></div>
+<div class="c-series-pagebtn j-series-pagebtn"></div>

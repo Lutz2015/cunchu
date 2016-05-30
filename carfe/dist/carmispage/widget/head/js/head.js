@@ -1,0 +1,1 @@
+define(function(require,exports,module){function a(a){d.render("widget/head/html/head",{title:a.title,buname:e},function(c,d){$(a.dom).html(d),b()})}function b(){$(".j-logout").on("click",function(a){location.href=f})}function c(b){a(b)}require("widget/head/html/head");var d=window.dust,e=window.buname,f=window.logouturl;module.exports={init:c}});

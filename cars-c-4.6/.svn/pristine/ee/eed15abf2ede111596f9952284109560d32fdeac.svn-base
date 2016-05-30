@@ -1,0 +1,480 @@
+.c-service-info-shop {
+    border-bottom: 1px solid #e7e7e7;
+    margin-bottom: 10px;
+    padding-left: 15px;
+    height: 64px;
+    background-color: #fff;
+}
+
+.c-service-sname {
+    padding-top: 15px;
+    height: 18px;
+    line-height: 18px;
+    color: #000;
+}
+
+.c-service-saddress {
+    height: 15px;
+    font-size: 11px;
+    line-height: 15px;
+    color: #778188;
+}
+
+.c-service-info-car {
+    position: relative;
+    border-top: 1px solid #e7e7e7;
+    border-bottom: 1px solid #e7e7e7;
+    margin-bottom: 10px;
+    padding-left: 15px;
+    height: 64px;
+    background-color: #fff;
+}
+
+.c-service-car-logo {
+    margin-top: 12px;
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+}
+
+.c-service-car-icon {
+    margin-top: 28px;
+    margin-right: 16px;
+}
+
+.c-service-listdom {
+    border-top: 1px solid #e7e7e7;
+}
+
+.c-serivce-distance {
+    border-top: 1px solid #e7e7e7;
+    border-bottom: 1px solid #e7e7e7;
+    margin-bottom: 10px;
+    padding-left: 15px;
+    height: 45px;
+    line-height: 45px;
+    background-color: #fff;
+    color: #333;
+}
+
+.c-service-distance-val {
+    display: block;
+    margin-top: 12px;
+    padding-left: 10px;
+    height: 21px;
+    font-size: 15px;
+    line-height: 21px;
+    text-align: right;
+}
+
+.c-service-distance-val::-webkit-input-placeholder {
+    display: inline-block;
+    text-align: right;
+    color: #ddd;
+    font-size: 12px;
+}
+
+.c-service-distance-val:-moz-placeholder {
+    display: inline-block;
+    text-align: right;
+    color: #ddd;
+    font-size: 12px;
+}
+
+.c-service-distance-val:-ms-input-placeholder {
+    display: inline-block;
+    text-align: right;
+    color: #ddd;
+    font-size: 12px;
+}
+
+.c-service-distance-val::-moz-placeholder {
+    display: inline-block;
+    text-align: right;
+    color: #ddd;
+    font-size: 12px;
+}
+
+.c-service-distance-km {
+    display: block;
+    margin-right: 16px;
+    margin-left: 16px;
+}
+
+.c-service-title {
+    height: 48px;
+    line-height: 48px;
+    color: #333;
+}
+
+.c-service-list-item {
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.c-service-list-item:last-of-type {
+    border-bottom: 0;
+}
+
+.c-services-list {
+    padding-right: 15px;
+    padding-left: 15px;
+    background-color: #fff;
+}
+
+.c-service-box {
+    border-bottom: 1px solid #e7e7e7;
+    margin-bottom: 10px;
+    padding-left: 15px;
+    background-color: #fff;
+}
+
+.c-service-box-title {
+    border-top: 1px solid #e7e7e7;
+    height: 45px;
+    line-height: 45px;
+    color: #333;
+}
+
+.c-service-menu-box {
+    position: relative;
+    margin-right: 15px;
+    margin-bottom: 3px;
+    height: 27px;
+    text-align: center;
+}
+
+.c-service-menu {
+    margin: 0 auto;
+    width: 259px;
+    color: #778188;
+}
+
+.c-service-menu li {
+    display: inline-block;
+    width: 85px;
+    height: 25px;
+    font-size: 12px;
+    line-height: 25px;
+}
+
+.c-service-menu li:nth-child(1) {
+    border-top: 1px solid #c2d3ec;
+    border-left: 1px solid #c2d3ec;
+    border-bottom: 1px solid #c2d3ec;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.c-service-menu li:nth-child(2) {
+    position: relative;
+    border: 1px solid #c2d3ec;
+}
+
+.c-service-menu li:nth-child(3) {
+    border-top: 1px solid #c2d3ec;
+    border-right: 1px solid #c2d3ec;
+    border-bottom: 1px solid #c2d3ec;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.c-service-menu li.check {
+    color: #3f94ff;
+    background-color: #f6f9fb;
+    border: 1px solid #3f94ff;
+}
+
+.c-service-base {
+    position: relative;
+    color: #778188;
+}
+
+.c-service-base li {
+    display: none;
+}
+
+.c-service-base li.check {
+    display: block;
+}
+
+.c-service-base-subitem {
+    height: 30px;
+    font-size: 12px;
+    line-height: 30px;
+}
+
+.c-service-base-price {
+    float: right;
+    color: #333;
+}
+
+.red.c-service-base-price {
+    color: #f82500;
+}
+
+.green.c-service-base-price {
+    color: #8fd90f;
+}
+
+.c-service-list-n {
+    margin-right: 15px;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.c-services-btn-bottom {
+    border-top: 1px solid #e7e7e7;
+    padding-right: 15px;
+    height: 50px;
+    font-size: 12px;
+    line-height: 50px;
+    color: #333;
+    text-align: right;
+}
+
+.c-service-base-total {
+    padding-right: 15px;
+    height: 40px;
+    line-height: 40px;
+}
+
+.c-service-price-total {
+    float: right;
+    color: #f82500;
+}
+
+.c-service-taocan-info,
+.c-service-detail-info {
+    display: inline-block;
+    border: 1px solid #4497ff;
+    border-radius: 5px;
+    width: 61px;
+    height: 21px;
+    font-size: 12px;
+    line-height: 21px;
+    color: #4497ff;
+    text-align: center;
+}
+
+.c-service-detail-info {
+    margin-left: 20px;
+}
+
+.c-service-sugs {
+    border-top: 1px solid #e7e7e7;
+    border-bottom: 1px solid #e7e7e7;
+    margin-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: #fff;
+}
+
+.c-service-sugs-title {
+    height: 40px;
+    line-height: 40px;
+    color: #333;
+}
+
+.c-service-sugs-item {
+    overflow: hidden;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.c-service-sugs-item:last-of-type {
+    border-bottom: 0;
+}
+
+#services .icircle-grey {
+    display: block;
+    float: right;
+    margin-top: 12px;
+}
+
+#services .iround-blue {
+    display: none;
+    float: right;
+    margin-top: 12px;
+}
+
+#services .check .icircle-grey {
+    display: none;
+}
+
+#services .check .iround-blue {
+    display: block;
+}
+
+.c-service-sugs-list {
+    float: left;
+    width: calc(100% - 33px);
+}
+
+.c-service-sugs-list:before {
+    content: ' ';
+    clear: both;
+}
+
+.c-service-sugs-name {
+    height: 43px;
+    font-size: 12px;
+    line-height: 43px;
+    color: #333;
+}
+
+.c-service-sugs-sub {
+    display: none;
+    height: 20px;
+    font-size: 12px;
+    line-height: 20px;
+    color: #778188;
+}
+
+.check .c-service-sugs-sub {
+    display: block;
+}
+
+.c-service-sugs-sprice {
+    float: right;
+    color: #333;
+}
+
+.c-service-sugs-ssprice {
+    float: right;
+    color: #778188;
+}
+
+.c-service-sugs-sub:last-of-type {
+    margin-bottom: 14px;
+}
+
+table,
+td,
+tr {
+    border: 0;
+}
+
+td,
+th {
+    text-align: left;
+    height: 20px;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 20px;
+    color: #333;
+}
+
+td:first-of-type {
+    color: #778188;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    padding-top: 10px;
+}
+
+.c-dialog .c-service-menu-box {
+    margin: 0;
+}
+
+.c-dialog .c-service-table {
+    display: none;
+    border-top: 1px solid #e7e7e7;
+    margin-top: 10px;
+    margin-bottom: 7px;
+    padding-top: 7px;
+}
+
+.c-dialog .c-service-table.check {
+    display: block;
+}
+
+.c-service-dialog-illustrate {
+    margin-bottom: 15px;
+}
+
+.c-service-list-item-name {
+    position: relative;
+    float: left;
+}
+
+.c-service-list-item-name .irecommend {
+    position: absolute;
+    top: 0;
+    right: -16px;
+}
+
+.c-service-menu .irecommend {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.c-services-foot {
+    height: 50px;
+    background-color: #fff;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    line-height: 50px;
+}
+
+.c-services-price {
+    display: inline-block;
+    margin-right: 18px;
+    margin-left: 15px;
+    font-size: 14px;
+    color: #333;
+}
+
+.c-services-danwei {
+    height: 50px;
+    font-size: 18px;
+    line-height: 50px;
+    color: #f82400;
+}
+
+.c-services-price-num {
+    position: relative;
+    overflow: hidden;
+    height: 50px;
+    width: 35%;
+    font-size: 18px;
+    line-height: 50px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #f82400;
+}
+
+.c-service-warn {
+    text-align: center;
+    color: #ED3B39;
+    font-size: 12px;
+    display: block;
+}
+
+.c-service-base-scpart {
+    margin-left: 10px;
+    padding: 1px;
+    color: #fff;
+}
+
+.c-services-foot-box {
+    border-top: 1px solid #e7e7e7;
+}
+
+.c-service-base0 .c-service-base-scpart {
+    background-color: #81b9ff;
+}
+
+.c-service-base1 .c-service-base-scpart {
+    background-color: #63a8fe;
+}
+
+.c-service-base2 .c-service-base-scpart {
+    background-color: #4294fb;
+}

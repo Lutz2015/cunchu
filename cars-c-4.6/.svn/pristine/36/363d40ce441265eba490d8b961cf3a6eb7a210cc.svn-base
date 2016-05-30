@@ -1,0 +1,53 @@
+define("widget/uccode/html/uccode", function() {
+  // widget/uccode/html/uccode.dust
+  (function() {
+    dust.register("widget/uccode/html/uccode", body_0);
+
+    function body_0(chk, ctx) {
+      return chk.w("<div class=\"c-uccode-select\"><p class=\"c-uccode-title\">请选择牌照地区</p><div class=\"c-uccode-list-box\"><ul class=\"c-uccode-list j-uccode-list\">").s(ctx.get(["words"], false), ctx, {
+        "block": body_1
+      }, {}).w("</ul></div><div class=\"c-uccode-submit j-uccode-submit\"><span>完成</span></div></div>");
+    }
+    body_0.__dustBody = !0;
+
+    function body_1(chk, ctx) {
+      return chk.w("<li class=\"c-uccode-item ").h("eq", ctx, {
+        "block": body_2
+      }, {
+        "key": ctx.get(["key"], false),
+        "value": body_3
+      }).w("\">").f(ctx.getPath(true, []), ctx, "h").w("</li>");
+    }
+    body_1.__dustBody = !0;
+
+    function body_2(chk, ctx) {
+      return chk.w("check");
+    }
+    body_2.__dustBody = !0;
+
+    function body_3(chk, ctx) {
+      return chk.f(ctx.getPath(true, []), ctx, "h");
+    }
+    body_3.__dustBody = !0;
+    return body_0;
+  })();
+  return function(locals, callback) {
+    var rendered;
+
+    dust.render("widget/uccode/html/uccode", locals, function(err, result) {
+      if (typeof callback === "function") {
+        try {
+          callback(err, result);
+        } catch (e) {}
+      }
+
+      if (err) {
+        throw err
+      } else {
+        rendered = result;
+      }
+    });
+
+    return rendered;
+  }
+});

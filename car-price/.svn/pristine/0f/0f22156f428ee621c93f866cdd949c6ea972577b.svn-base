@@ -1,0 +1,38 @@
+{
+    "themeid": "mis",
+    "dev": {
+        "url": "",
+        "version": 0,
+        "port": 8288,
+        "apiurl": "http://cp01-rdqa-dev346.cp01.baidu.com:8289",
+        "bdtoken": "7ef0447539cdcdaa10593328f608a1f",
+        "appid": "12345",
+        "carlogo": "http://developer.baidu.com/static/chuilei/car/",
+        "token": "adsfasdf",
+        "bid": "109",
+        "bname": "日产",
+        "blogo": "109.png"
+    },
+    "release": {
+        "url": "/mis",
+        "apiurl": "",
+        "bdtoken": "{%$bdtoken%}",
+        "appid": "{%$appid%}",
+        "carlogo": "http://developer.baidu.com/static/chuilei/car/",
+        "token": "{%$token%}",
+        "bid": "{%$bid%}",
+        "bname": "{%$bname%}",
+        "blogo": "{%$blogo%}"
+    },
+    "online": {
+        "url": "http://static.qyy.baidu.com/chuilei/static/mis",
+        "apiurl": "",
+        "bdtoken": "{%$bdtoken%}",
+        "appid": "{%$appid%}",
+        "carlogo": "http://developer.baidu.com/static/chuilei/car/",
+        "token": "{%$token%}",
+        "bid": "{%$bid%}",
+        "bname": "{%$bname%}",
+        "blogo": "{%$blogo%}"
+    }
+}

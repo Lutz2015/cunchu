@@ -1,0 +1,426 @@
+#main-content {
+    width: 998px;
+    font-size: 14px;
+    color: #333;
+}
+
+.c-content {
+    overflow: hidden;
+    border: 1px solid #dfe2e3;
+    padding: 20px;
+    width: 956px;
+    background: #fff;
+}
+
+.c-head {
+    height: 50px;
+    line-height: 50px;
+}
+
+.c-brand {
+    height: 50px;
+}
+
+.c-brand-logo {
+    border: 1px solid #dfe2e3;
+    width: 48px;
+    height: 48px;
+    float: left;
+}
+
+.c-brand-name {
+    float: left;
+    margin-left: 17px;
+    height: 50px;
+    line-height: 50px;
+}
+
+.c-ser-container {
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.c-current-series {
+    position: relative;
+    float: right;
+    width: 890px;
+}
+
+.c-cur-ser-label {
+    float: left;
+    margin-top: 8px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.c-cur-seri-box {
+    overflow: hidden;
+    width: 890px;
+    height: 46px;
+}
+
+.c-cur-seri-box.t-unfold {
+    height: auto;
+}
+
+.c-cur-ser-item {
+    display: inline-block;
+    border: 1px solid #dfe2e3;
+    margin-top: 8px;
+    margin-right: 20px;
+    margin-bottom: 8px;
+    height: 28px;
+    font-size: 12px;
+    line-height: 28px;
+}
+
+.c-cur-ser-name {
+    display: inline-block;
+    padding-left: 14px;
+    padding-right: 5px;
+    width: 60px;
+    text-align: center;
+}
+
+.c-cur-ser-item .iclose {
+    float: right;
+    border: 8px solid #fff;
+    cursor: pointer;
+}
+
+.c-cur-ser-unfold {
+    position: absolute;
+    right: 0;
+    bottom: 8px;
+    padding-right: 14px;
+    height: 30px;
+    font-size: 12px;
+    line-height: 30px;
+    text-align: center;
+    color: #4497ff;
+    cursor: pointer;
+}
+
+.c-cur-ser-unfold .idown,
+.c-cur-ser-unfold .iup {
+    position: absolute;
+    top: 12px;
+    right: 0;
+}
+
+.c-ser-list-container {
+    float: right;
+    margin-top: 8px;
+    width: 890px;
+}
+
+.c-ser-select-btn {
+    position: relative;
+    border: 1px solid #d9d9d9;
+    padding-right: 15px;
+    padding-left: 5px;
+    width: 48px;
+    height: 26px;
+    font-size: 12px;
+    line-height: 26px;
+    color: #4497ff;
+    background: #f6f8f9;
+}
+
+.c-ser-select-btn .idown,
+.c-ser-select-btn .iup {
+    position: absolute;
+    top: 10px;
+    right: 4px;
+}
+
+.c-series-box input[type="checkbox"] {
+    display: none;
+}
+
+.c-series-box label {
+    position: relative;
+    display: inline-block;
+    padding-left: 20px;
+    cursor: pointer;
+}
+
+.c-series-box label:before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 0;
+    display: block;
+    border: 1px solid #d0d0d0;
+    width: 14px;
+    height: 14px;
+    background: #fff;
+}
+
+.c-series-box label:after {
+    content: "";
+    position: absolute;
+    left: 3px;
+    top: 6px;
+    display: none;
+    border: none;
+    border-bottom: 2px solid #4497ff;
+    border-left: 2px solid #4497ff;
+    width: 8px;
+    height: 4px;
+    background: transparent;
+    -webkit-transform: rotate(-45deg);
+          -ms-transform: rotate(-45deg);
+                  transform: rotate(-45deg);
+}
+
+.c-series-box input:checked + label:after {
+    display: block;
+}
+
+.c-series-btn {
+    position: relative;
+    border: 1px solid #d9d9d9;
+    padding-right: 10px;
+    width: 58px;
+    height: 26px;
+    font-size: 12px;
+    line-height: 26px;
+    text-align: center;
+    background: #f6f8f9;
+    color: #4497ff;
+    cursor: pointer;
+}
+
+.c-series-btn .idown,
+.c-series-btn .iup {
+    position: absolute;
+    top: 10px;
+    right: 5px;
+}
+
+.c-series {
+    float: right;
+    margin-top: 8px;
+    width: 890px;
+}
+
+.c-series-box {
+    position: relative;
+    border: 1px solid #dfe2e3;
+    margin-top: 16px;
+    width: 512px;
+    height: 262px;
+    background: #fafafa;
+}
+
+.c-series-list {
+    overflow-y: auto;
+    padding: 8px 16px;
+    width: 480px;
+    height: 246px;
+}
+
+.c-series-title {
+    height: 32px;
+    line-height: 32px;
+}
+
+.c-series-item {
+    display: inline-block;
+    margin: 6px 0;
+    width: 154px;
+    height: 20px;
+    font-size: 12px;
+    line-height: 20px;
+}
+
+.c-series-box:before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: 30px;
+    border-top: 1px solid #dfe2e3;
+    border-right: 1px solid #dfe2e3;
+    height: 7px;
+    width: 7px;
+    background: #fafafa;
+    -webkit-transform: rotate(-45deg);
+          -ms-transform: rotate(-45deg);
+                  transform: rotate(-45deg);
+}
+
+.c-series-menu {
+    margin-top: 20px;
+    height: 36px;
+}
+
+.c-s-menu-list {
+    display: inline-block;
+}
+
+.c-s-menu-goleft {
+    display: inline-block;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: 1px solid #dfe2e3;
+    margin-right: 4px;
+    width: 31px;
+    height: 34px;
+    cursor: pointer;
+}
+
+.c-s-menu-goleft .ileft {
+    margin: 13px;
+}
+
+.c-s-menu-goright {
+    display: inline-block;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: 1px solid #dfe2e3;
+    margin-left: 4px;
+    width: 31px;
+    height: 34px;
+    cursor: pointer;
+}
+
+.c-s-menu-goright .iright {
+    margin: 13px;
+}
+
+.c-s-menu-item {
+    position: relative;
+    display: inline-block;
+    border: 1px solid #dfe2e3;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin: 0 2px;
+    padding: 0 10px;
+    height: 34px;
+    line-height: 34px;
+    background: #fff;
+    cursor: pointer;
+}
+
+.c-s-menu-item:first-of-type {
+    margin-left: 0;
+}
+
+.c-s-menu-item-text {
+    display: inline-block;
+    width: 70px;
+}
+
+.checked .c-s-menu-item-text {
+    width: auto;
+}
+
+.c-s-menu-item .iclose {
+    display: none;
+    border-radius: 5px;
+}
+
+.c-s-menu-item:hover {
+    padding-right: 33px;
+}
+
+.c-s-menu-item:hover .iclose {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 11px solid #fff;
+    display: block;
+}
+
+.c-s-menu-item.checked {
+    border-color: #4497ff;
+    background: #4497ff;
+    color: #fff;
+}
+
+.c-s-menu-item.checked .iclose {
+    background-position: -120px 0;
+}
+
+.c-s-menu-item.checked:hover .iclose {
+    border-color: #4497ff;
+}
+
+.c-s-table {
+    height: 452px;
+    text-align: center;
+}
+
+.c-s-table thead {
+    background: #f5f8f9;
+}
+
+.c-s-table tbody {
+    font-size: 12px;
+}
+
+.c-s-table tr {
+    height: 40px;
+    line-height: 40px;
+}
+
+.c-s-table th:first-of-type,
+.c-s-table td:first-of-type {
+    border-left: 0;
+}
+
+.c-s-table td {
+    border-top: 1px solid #dfe2e3;
+    border-left: 1px solid #dfe2e3;
+}
+
+.c-s-table th {
+    border-left: 1px solid #dfe2e3;
+}
+
+tbody tr:nth-of-type(2n) {
+    background: #fafafa;
+}
+
+.c-s-table .c-s-tr-empty,
+.c-s-table .c-s-tr-empty:hover {
+    background: #fff;
+}
+
+.c-s-table tbody tr:hover {
+    background: #e7f2ff;
+}
+
+.c-td-name {
+    width: 200px;
+}
+
+.c-td-engine,
+.c-td-gearbox,
+.c-td-price {
+    width: 150px;
+}
+
+.c-td-displacement,
+.c-td-cylinder {
+    width: 90px;
+}
+
+.c-td-driving {
+    width: 118px;
+}
+
+.c-td-price-text {
+    margin: 0 6px;
+    color: #4497ff;
+    cursor: pointer;
+}
+
+.c-series-table {
+    position: relative;
+    border: 1px solid #dfe2e3;
+    margin-top: -1px;
+    width: 954px;
+    height: 452px;
+}

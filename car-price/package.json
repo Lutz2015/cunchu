@@ -1,0 +1,32 @@
+{
+    "name": "spg-demo",
+    "version": "1.0.5",
+    "description": "spg created by seven",
+    "author": {
+        "name": "seven"
+    },
+    "devDependencies": {
+        "dustjs-linkedin": "^2.7.2",
+        "grunt": "^0.4.5",
+        "grunt-autoprefixer": "^3.0.3",
+        "grunt-contrib-clean": "^0.7.0",
+        "grunt-contrib-concat": "^0.5.1",
+        "grunt-contrib-copy": "^0.8.2",
+        "grunt-contrib-cssmin": "^0.14.0",
+        "grunt-contrib-jshint": "^0.11.3",
+        "grunt-contrib-requirejs": "^0.4.4",
+        "grunt-contrib-uglify": "^0.11.0",
+        "grunt-contrib-watch": "^0.6.1",
+        "grunt-devserver": "^0.6.0",
+        "grunt-dust": "^0.9.4",
+        "grunt-dust-html": "^0.3.0",
+        "grunt-install-dependencies": "^0.2.0",
+        "load-grunt-tasks": "^3.3.0"
+    },
+    "readme": "## init 本地开发\r\nnpm install ——安装依赖包\r\ngrunt devserver——开启本地server（默认监听8888端口）\r\nhttp://127.0.0.1:8888/index.html——打开地址\r\ngrunt watch——监听本地文件修改，配合livereload自动刷新页面\r\ngrunt release——生成上线代码，文件在dist文件夹下\r\ngrunt clear——将自动生成文件全部删除",
+    "readmeFilename": "README.md",
+    "_id": "spg-demo@1.0.5",
+    "scripts": {},
+    "_shasum": "7adf3b2e652f03eb7ffc9cf27ee24865c8920fbc",
+    "_from": "spg-demo@*"
+}

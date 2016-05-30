@@ -1,0 +1,31 @@
+define("template/personal", function() {
+  // template/personal.dust
+  (function() {
+    dust.register("template/personal", body_0);
+
+    function body_0(chk, ctx) {
+      return chk.w("<div class=\"c-header-name\"><span class=\"c-h-bg\"></span><span class=\"c-h-img\"><img class=\"j-h-img\" src=\"").f(ctx.getPath(false, ["result", "user_photo"]), ctx, "h").w("\"></span><p class=\"c-h-name\"><span>").f(ctx.getPath(false, ["result", "user_name"]), ctx, "h").w("</span><br/></p></div><div class=\"c-personal-c\"><a href=\"https://wallet.baidu.com/content/mywallet/h5/sdk_page/sdk_quan_manager.html?ua=1-1-1-zhidahao\"><p class=\"c-my-one\">我的卡券<i class=\"iright\"></i></p></a><hr/><!--<a href=\"https://m.baidu.com/ordercenter\"><p class=\"c-p-order\">我的代金券 <i class=\"iright\"></i></p></a>--><a href=\"#orderlists/\"><p class=\"c-my-list\">我的订单 <i class=\"iright\"></i></p></a><a href=\"#mycar/\"><p class=\"c-my-car\">我的爱车 <i class=\"iright\"></i></p></a></div><div class=\"c-personal-go-nav j-personal-go-nav\"><i class=\"igo-nav\"></i><span class=\"c-personal-go-nav-text\">直达号首页</span></div>");
+    }
+    body_0.__dustBody = !0;
+    return body_0;
+  })();
+  return function(locals, callback) {
+    var rendered;
+
+    dust.render("template/personal", locals, function(err, result) {
+      if (typeof callback === "function") {
+        try {
+          callback(err, result);
+        } catch (e) {}
+      }
+
+      if (err) {
+        throw err
+      } else {
+        rendered = result;
+      }
+    });
+
+    return rendered;
+  }
+});

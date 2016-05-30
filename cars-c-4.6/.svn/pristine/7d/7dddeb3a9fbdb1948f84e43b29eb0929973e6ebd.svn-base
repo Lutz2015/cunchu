@@ -1,0 +1,5 @@
+define(function () {
+	// widget/uccode/html/uccode.dust
+	(function(){dust.register("widget/uccode/html/uccode",body_0);function body_0(chk,ctx){return chk.write("<div class=\"c-uccode-select\"><p class=\"c-uccode-title\">请选择牌照地区</p><div class=\"c-uccode-list-box\"><ul class=\"c-uccode-list j-uccode-list\">").section(ctx.get("words"),ctx,{"block":body_1},null).write("</ul></div><div class=\"c-uccode-submit j-uccode-submit\"><span>完成</span></div></div>");}function body_1(chk,ctx){return chk.write("<li class=\"c-uccode-item ").helper("eq",ctx,{"block":body_2},{"key":ctx.get("key"),"value":body_3}).write("\">").reference(ctx.getPath(true,[]),ctx,"h").write("</li>");}function body_2(chk,ctx){return chk.write("check");}function body_3(chk,ctx){return chk.reference(ctx.getPath(true,[]),ctx,"h");}return body_0;})();
+	return "widget/uccode/html/uccode";
+});

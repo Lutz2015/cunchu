@@ -1,0 +1,12 @@
+<div class="c-car-container">
+    <ul>
+        {#result}
+            <li class="c-car-series-subtype"><span>{key}</span></li>
+            {#cars}
+                <li class="c-car-series j-car-series {@if cond="{$idx} == 0"}c-first{/if}" data-id="{sid}" data-name="{sname}">
+                    <span>{sname}</span>
+                </li>
+            {/cars}
+        {/result}
+    </ul>
+</div>

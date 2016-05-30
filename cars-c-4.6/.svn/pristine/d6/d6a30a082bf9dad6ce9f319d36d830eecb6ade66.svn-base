@@ -1,0 +1,9 @@
+<div class="c-car-container">
+    <ul>
+        {#result}
+            <li class="c-car-model j-car-model" data-ccode="{ccode}" data-id="{cid}" data-name="{cname}" data-logo="{clogo}" data-dkm="{dkm}" data-skm="{skm}">
+                <span>{cname}</span>
+            </li>
+        {/result}
+    </ul>
+</div>

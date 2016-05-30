@@ -1,0 +1,10 @@
+<div class="c-popup j-popup">
+    <div class="c-popup-box">
+        <div class="iclose j-popup-cancel"></div>
+        <div class="c-popup-text">{text}</div>
+        <div class="c-popup-btn">
+            <div class="c-popup-confirm j-popup-confirm">确定</div>
+            <div class="c-popup-cancel j-popup-cancel">取消</div>
+        </div>
+    </div>
+</div>

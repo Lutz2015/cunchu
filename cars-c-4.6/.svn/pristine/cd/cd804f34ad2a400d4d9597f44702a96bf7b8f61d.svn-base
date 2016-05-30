@@ -1,0 +1,66 @@
+define("widget/head/html/head", function() {
+  // widget/head/html/head.dust
+  (function() {
+    dust.register("widget/head/html/head", body_0);
+
+    function body_0(chk, ctx) {
+      return chk.w("<div class=\"c-header j-header\">").x(ctx.get(["hasBack"], false), ctx, {
+        "block": body_1
+      }, {}).w("<div class=\"c-header-title j-header-title\">").f(ctx.get(["title"], false), ctx, "h").w("</div>").x(ctx.get(["hasEdit"], false), ctx, {
+        "block": body_2
+      }, {}).x(ctx.get(["loginoutshow"], false), ctx, {
+        "block": body_3
+      }, {}).x(ctx.get(["reloadbtn"], false), ctx, {
+        "block": body_5
+      }, {}).w("</div>");
+    }
+    body_0.__dustBody = !0;
+
+    function body_1(chk, ctx) {
+      return chk.w("<span class=\"c-header-back j-header-back\"><i class=\"ileft c-header-back-icon\"></i></span>");
+    }
+    body_1.__dustBody = !0;
+
+    function body_2(chk, ctx) {
+      return chk.w("<span class=\"c-header-edit j-header-edit\">").f(ctx.get(["rightTitle"], false), ctx, "h").w("</span>");
+    }
+    body_2.__dustBody = !0;
+
+    function body_3(chk, ctx) {
+      return chk.x(ctx.get(["loginout"], false), ctx, {
+        "block": body_4
+      }, {});
+    }
+    body_3.__dustBody = !0;
+
+    function body_4(chk, ctx) {
+      return chk.w("<a class=\"c-header-loginout\" href=\"http://passport.rdtest.baidu.com/?logout\">退出</a>");
+    }
+    body_4.__dustBody = !0;
+
+    function body_5(chk, ctx) {
+      return chk.w("<a class=\"c-header-reload j-header-reload irefresh\" href=\"javascript:void(0);\" ></a>");
+    }
+    body_5.__dustBody = !0;
+    return body_0;
+  })();
+  return function(locals, callback) {
+    var rendered;
+
+    dust.render("widget/head/html/head", locals, function(err, result) {
+      if (typeof callback === "function") {
+        try {
+          callback(err, result);
+        } catch (e) {}
+      }
+
+      if (err) {
+        throw err
+      } else {
+        rendered = result;
+      }
+    });
+
+    return rendered;
+  }
+});

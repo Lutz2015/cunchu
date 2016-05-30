@@ -1,0 +1,40 @@
+{#result}
+<div class="c-profile-name">
+	<img src="http://developer.baidu.com/static/car_logo.png" width="50" class="c-logo" />
+	{sp_name}
+</div>
+{?desc}
+<div class="c-introduction-content">
+    <h4>公司简介</h4>
+    <p>
+    {desc}
+    </p>
+</div>
+{:else}
+{/desc}
+
+<div class="c-profile-telladress">
+	{?add_map}
+		<a class="c-prfile-map" href="http://api.map.baidu.com/marker?location={coordinate_y},{coordinate_x}&title={sp_name}&content={sp_address}&output=html&src=lbscomponents|lbscomponents">
+			<div class="c-profile-address"><p class="fl">店铺地址</p>
+				<span class="c-profile-add">{sp_address}</span>
+				<i class="iright"></i>
+			</div>
+		</a>
+	{:else}
+		<div class="c-profile-address"><p class="fl">店铺地址</p>
+			<span class="c-profile-add">{?sp_address}{sp_address}{:else}暂无公司地址{/sp_address}</span>
+		</div>
+	{/add_map}
+	{?phonenum}
+		<a href="tel:{phonenum}" class="j-profile-tell c-profile-tell">
+			<div class="c-profile-tell">
+				<p class="fl">联系电话</p>
+				<span class="j-span-tell">{phonenum}</span>
+				<i class="iright"></i>
+			</div>
+		</a>
+	{:else}
+	{/phonenum}
+</div>
+{/result}

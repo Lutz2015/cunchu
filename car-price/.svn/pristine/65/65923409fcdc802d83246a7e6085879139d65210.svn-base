@@ -1,0 +1,64 @@
+.c-w-pagebtn {
+    margin-top: 20px;
+    height: 36px;
+    text-align: center;
+}
+
+.c-w-pagebtn-list {
+    display: inline-block;
+}
+
+.c-w-pagebtn-item {
+    overflow: hidden;
+    display: inline-block;
+    border: 1px solid #dfe2e3;
+    width: 34px;
+    height: 28px;
+    font-size: 12px;
+    line-height: 28px;
+    text-align: center;
+    color: #9fb2c2;
+    cursor: pointer;
+}
+
+.c-w-pagebtn-item-text {
+    display: inline-block;
+}
+
+.c-w-pagebtn-item.checked {
+    border-color: #4497ff;
+    background: #4497ff;
+    color: #fff;
+}
+
+.c-w-pagebtn-goright {
+    overflow: hidden;
+    display: inline-block;
+    border: 1px solid #dfe2e3;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin-left: 2px;
+    width: 31px;
+    height: 28px;
+    cursor: pointer;
+}
+
+.c-w-pagebtn-goright .iright {
+    border: 10px solid #fff;
+}
+
+.c-w-pagebtn-goleft {
+    overflow: hidden;
+    display: inline-block;
+    border: 1px solid #dfe2e3;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin-right: 2px;
+    width: 31px;
+    height: 28px;
+    cursor: pointer;
+}
+
+.c-w-pagebtn-goleft .ileft {
+    border: 10px solid #fff;
+}

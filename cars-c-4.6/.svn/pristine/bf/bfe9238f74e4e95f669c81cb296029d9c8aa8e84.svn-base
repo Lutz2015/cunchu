@@ -1,0 +1,90 @@
+define("template/profile", function() {
+  // template/profile.dust
+  (function() {
+    dust.register("template/profile", body_0);
+
+    function body_0(chk, ctx) {
+      return chk.s(ctx.get(["result"], false), ctx, {
+        "block": body_1
+      }, {});
+    }
+    body_0.__dustBody = !0;
+
+    function body_1(chk, ctx) {
+      return chk.w("<div class=\"c-profile-name\"><img src=\"http://developer.baidu.com/static/car_logo.png\" width=\"50\" class=\"c-logo\" />").f(ctx.get(["sp_name"], false), ctx, "h").w("</div>").x(ctx.get(["desc"], false), ctx, {
+        "else": body_2,
+        "block": body_3
+      }, {}).w("<div class=\"c-profile-telladress\">").x(ctx.get(["add_map"], false), ctx, {
+        "else": body_4,
+        "block": body_7
+      }, {}).x(ctx.get(["phonenum"], false), ctx, {
+        "else": body_8,
+        "block": body_9
+      }, {}).w("</div>");
+    }
+    body_1.__dustBody = !0;
+
+    function body_2(chk, ctx) {
+      return chk;
+    }
+    body_2.__dustBody = !0;
+
+    function body_3(chk, ctx) {
+      return chk.w("<div class=\"c-introduction-content\"><h4>公司简介</h4><p>").f(ctx.get(["desc"], false), ctx, "h").w("</p></div>");
+    }
+    body_3.__dustBody = !0;
+
+    function body_4(chk, ctx) {
+      return chk.w("<div class=\"c-profile-address\"><p class=\"fl\">店铺地址</p><span class=\"c-profile-add\">").x(ctx.get(["sp_address"], false), ctx, {
+        "else": body_5,
+        "block": body_6
+      }, {}).w("</span></div>");
+    }
+    body_4.__dustBody = !0;
+
+    function body_5(chk, ctx) {
+      return chk.w("暂无公司地址");
+    }
+    body_5.__dustBody = !0;
+
+    function body_6(chk, ctx) {
+      return chk.f(ctx.get(["sp_address"], false), ctx, "h");
+    }
+    body_6.__dustBody = !0;
+
+    function body_7(chk, ctx) {
+      return chk.w("<a class=\"c-prfile-map\" href=\"http://api.map.baidu.com/marker?location=").f(ctx.get(["coordinate_y"], false), ctx, "h").w(",").f(ctx.get(["coordinate_x"], false), ctx, "h").w("&title=").f(ctx.get(["sp_name"], false), ctx, "h").w("&content=").f(ctx.get(["sp_address"], false), ctx, "h").w("&output=html&src=lbscomponents|lbscomponents\"><div class=\"c-profile-address\"><p class=\"fl\">店铺地址</p><span class=\"c-profile-add\">").f(ctx.get(["sp_address"], false), ctx, "h").w("</span><i class=\"iright\"></i></div></a>");
+    }
+    body_7.__dustBody = !0;
+
+    function body_8(chk, ctx) {
+      return chk;
+    }
+    body_8.__dustBody = !0;
+
+    function body_9(chk, ctx) {
+      return chk.w("<a href=\"tel:").f(ctx.get(["phonenum"], false), ctx, "h").w("\" class=\"j-profile-tell c-profile-tell\"><div class=\"c-profile-tell\"><p class=\"fl\">联系电话</p><span class=\"j-span-tell\">").f(ctx.get(["phonenum"], false), ctx, "h").w("</span><i class=\"iright\"></i></div></a>");
+    }
+    body_9.__dustBody = !0;
+    return body_0;
+  })();
+  return function(locals, callback) {
+    var rendered;
+
+    dust.render("template/profile", locals, function(err, result) {
+      if (typeof callback === "function") {
+        try {
+          callback(err, result);
+        } catch (e) {}
+      }
+
+      if (err) {
+        throw err
+      } else {
+        rendered = result;
+      }
+    });
+
+    return rendered;
+  }
+});

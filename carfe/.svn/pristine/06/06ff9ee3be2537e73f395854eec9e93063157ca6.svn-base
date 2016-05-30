@@ -1,0 +1,23 @@
+<div class="c-care-content">
+    <div class="c-add-care j-add-care">
+        <button class="c-care-create j-care-create">新建</button>
+        <div class="j-care-newcreate"></div>
+    </div>
+    <table class="c-care-tab c-name-tab fl" cellspacing="0" cellpadding="0">
+        <thead class="c-care-thead">
+        <tr><th>保养项目</th><th>配件类型</th></tr>
+        </thead>
+        <tbody>
+            {#result}
+            <tr class="j-care-tr">
+                <td>
+                    <span class="c-care-span" data-caname="{caname}">{caname}</span>
+                </td>
+                 <td>
+                    <span class="c-care-span" data-capart="{capart}">{capart}</span>
+                </td>
+            </tr>
+            {/result}
+        </tbody>
+    </table>
+</div>

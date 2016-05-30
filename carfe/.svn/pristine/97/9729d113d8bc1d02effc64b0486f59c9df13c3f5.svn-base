@@ -1,0 +1,35 @@
+{
+  "themeid": "carmispage",
+  "dev": {
+    "url": "",
+    "version": 0,
+    "port": 8282,
+    "apiurl": "http://cp01-rdqa-dev346.cp01.baidu.com:8289",
+    "bdtoken": "7ef0447539cdcdaa10593328f608a1f",
+    "appid": "1183630",
+    "token": "adsfasdf",
+    "curl": "http://aiche.baidu.com/demo?appid=",
+    "logouturl": "http://passport.rdtest.baidu.com/?logout",
+    "buname": "wangbin24"
+  },
+  "release": {
+    "url": "/carmispage",
+    "apiurl": "",
+    "bdtoken": "{%$bdtoken%}",
+    "appid": "{%$appid%}",
+    "token": "{%$token%}",
+    "curl": "http://aiche.baidu.com/demo?appid=",
+    "logouturl": "http://passport.rdtest.baidu.com/?logout",
+    "buname": "{%$buname%}"
+  },
+  "online": {
+    "url": "http://static.qyy.baidu.com/chuilei/static/carmispage",
+    "apiurl": "",
+    "bdtoken": "{%$bdtoken%}",
+    "appid": "{%$appid%}",
+    "token": "{%$token%}",
+    "curl": "http://aiche.baidu.com/demo?appid=",
+    "logouturl": "https://passport.baidu.com/?logout",
+    "buname": "{%$buname%}"
+  }
+}

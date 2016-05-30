@@ -1,0 +1,93 @@
+#profilecontent{
+	font-size: 14px;
+	color: #333;
+}
+.c-profile-telladress,
+.c-introduction-content{
+	border-top: 1px solid #e7e7e7;
+	border-bottom: 1px solid #e7e7e7;
+}
+.c-introduction-content{ 
+	padding:13px; 
+	padding-top:0;
+	background: #fff;
+	padding-bottom: 2px;
+	margin-bottom: 10px;
+}
+.c-introduction-content h4{ 
+	margin: 0;
+	padding: 0;
+	font-weight:100;
+	height:32px;
+	line-height:32px;
+	border-bottom: 1px solid #e7e7e7;
+}
+.c-introduction-content p{ 
+	padding: 7px 0;
+	text-indent:2em; 
+	line-height:22px; 
+	font-size: 12px;
+	color: #778188;
+}
+.c-profile-telladress div{
+	padding: 13px 12px 13px 0;
+	overflow: hidden;
+	position: relative;
+}
+.c-profile-telladress div p{
+	width: 25%;
+	color: #333;
+}
+.c-profile-telladress div .j-span-tell{
+	color: #778188;
+	width: 45%;
+	float: left;
+}
+.c-profile-name{
+	height: 70px;
+	line-height: 70px;
+	background: #fff;
+	border-bottom:1px solid #e7e7e7;
+	margin-bottom: 10px;
+}
+.c-profile-telladress{
+	background: #fff;
+	padding-left: 13px;
+	margin-bottom: 10px;
+}
+.c-profile-address{
+	border-bottom: 1px solid #e7e7e7;
+}
+.c-profile-name .c-logo{
+	margin: 0 13px;
+}
+.c-profile-tell{
+	display: block;
+}
+.c-profile-rightt{
+	width: 11px;
+}
+.c-profile-add{
+	float: left;
+	width: 70%;
+}
+.c-prfile-map{
+	width: 100%;
+	display: block;
+}
+.c-profile-telladress .iright{
+	float:right;
+	margin-top:-7px;
+	position: absolute;
+	right: 13px;
+	top:50%;
+}
+.c-no-order{
+    text-align: center;
+    line-height: 60px;
+    font-size: 16px;
+    color: #666;
+}
+.c-no-bd{
+	border-bottom: 0;
+}

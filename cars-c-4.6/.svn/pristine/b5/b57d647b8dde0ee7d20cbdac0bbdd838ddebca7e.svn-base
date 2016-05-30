@@ -1,0 +1,122 @@
+.c-car-arrow {
+    position: absolute;
+    top: 26px;
+    right: 20px;
+}
+
+.c-car-brand {
+    border-top: 1px solid #e7e7e7;
+    margin-left: 15px;
+    height: 45px;
+    line-height: 45px;
+    background-color: #fff;
+    color: #333;
+}
+
+.c-first.c-car-brand,
+.c-first.c-car-series {
+    border: 0;
+}
+
+.c-car-brand-logo {
+    float: left;
+    margin-right: 15px;
+    width: 45px;
+    height: 45px;
+}
+
+.c-car-brand:last-of-type {
+    margin-bottom: 10px;
+}
+
+.c-car-series {
+    border-top: 1px solid #e7e7e7;
+    margin-left: 15px;
+    height: 45px;
+    line-height: 45px;
+    color: #333;
+}
+
+.c-car-series:last-of-type {
+    border-bottom: 1px solid #e7e7e7;
+    margin-left: 0;
+    margin-bottom: 10px;
+    padding-left: 15px;
+}
+
+.c-car-series-logo {
+    height: 40px;
+    width: 91px;
+}
+
+.c-car-model {
+    border-bottom: 1px solid #e7e7e7;
+    margin-left: 15px;
+    height: 45px;
+    line-height: 45px;
+    color: #333;
+2}
+
+.c-car-model:last-of-type {
+    margin-left: 0;
+    margin-bottom: 10px;
+    padding-left: 15px;
+}
+
+.c-car-word {
+    border-top: 1px solid #e7e7e7;
+    border-bottom: 1px solid #e7e7e7;
+    padding-left: 15px;
+    height: 20px;
+    font-size: 12px;
+    line-height: 20px;
+    background-color: #f2f5fa;
+}
+
+.c-car-nav {
+    position: fixed;
+    z-index: 101;
+    top: 45px;
+    right: 0;
+    bottom: 0;
+}
+
+.c-car-nav-word {
+    width: 40px;
+    height: 18px;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+}
+
+.baidu .c-car-word-suspend {
+    top: 0;
+}
+
+.c-car-word-suspend {
+    position: fixed;
+    top: 45px;
+    right: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+}
+
+.c-car-container {
+    background-color: #fff;
+}
+
+.c-car-series-subtype:first-of-type {
+    border-top: 0;
+}
+
+.c-car-series-subtype {
+    border-top: 1px solid #e7e7e7;
+    border-bottom: 1px solid #e7e7e7;
+    height: 24px;
+    font-size: 12px;
+    line-height: 24px;
+    background-color: #f2f5fa;
+    color: #778188;
+    padding-left: 15px;
+}

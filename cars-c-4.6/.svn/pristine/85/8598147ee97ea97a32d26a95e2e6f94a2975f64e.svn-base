@@ -1,0 +1,209 @@
+.c-order-info-list {
+    position: relative;
+    margin: 10px 5px 0 5px;
+    line-height: 50px;
+    background-color: #fff;
+    border-radius: 4px;
+}
+
+.c-order-info-list-last {
+    margin-bottom: 10px;
+}
+
+.c-order-car-logo1 {
+    margin: 16px;
+    vertical-align: middle;
+}
+
+.c-order-tick {
+    position: absolute;
+    top: 19px;
+    right: 20px;
+}
+
+.c-order-tick.hide {
+    display: none;
+}
+
+.c-order-shop-address {
+    display: inline-block;
+    padding-right: 20px;
+    line-height: 16px;
+    vertical-align: middle;
+}
+
+.c-order-info-label {
+    display: block;
+    padding: 0 10px;
+}
+
+.c-order-phone-input {
+    margin-right: 50px;
+    text-align: right;
+}
+
+.c-order-info-error {
+    display: none;
+    padding-left: 15px;
+    height: 30px;
+    line-height: 30px;
+    color: red;
+}
+
+.c-order-uccode-input {
+    margin-right: 50px;
+    text-align: right;
+    text-transform: uppercase;
+}
+
+.c-order-time-input {
+    margin-right: 50px;
+    text-align: right;
+}
+
+.c-order-info-label-forshop {
+    display: inline-block;
+    margin: 0 10px 0 -70px;
+    width: 60px;
+    vertical-align: middle;
+}
+
+.c-order-info-list-forshop {
+    padding-left: 80px;
+}
+
+.c-order-info-shop {
+    border-bottom: 1px solid #e7e7e7;
+    margin-bottom: 10px;
+    padding-left: 15px;
+    height: 64px;
+    background-color: #fff;
+}
+
+.c-order-sname {
+    padding-top: 15px;
+    height: 18px;
+    line-height: 18px;
+    color: #000;
+}
+
+.c-order-saddress {
+    height: 15px;
+    font-size: 11px;
+    line-height: 15px;
+    color: #778188;
+}
+
+.c-order-info-car {
+    position: relative;
+    border-bottom: 1px solid #e7e7e7;
+    height: 64px;
+}
+
+.c-order-car-logo {
+    float: left;
+    margin-top: 12px;
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+}
+
+.c-order-info-cc {
+    border-top: 1px solid #e7e7e7;
+    border-bottom: 1px solid #e7e7e7;
+    margin-bottom: 10px;
+    padding-left: 15px;
+    background-color: #fff;
+}
+
+.c-order-care-title {
+    padding-top: 6px;
+    height: 32px;
+    line-height: 32px;
+    color: #333;
+}
+
+.c-order-care-box {
+    padding-right: 15px;
+    height: 24px;
+    font-size: 12px;
+    line-height: 24px;
+    color: #778187;
+}
+
+.c-order-care-box:last-of-type {
+    padding-bottom: 9px;
+}
+
+.c-order-care-price {
+    float: right;
+    color: #333;
+}
+
+.c-order-item {
+    position: relative;
+    border-bottom: 1px solid #e7e7e7;
+    height: 45px;
+    line-height: 45px;
+    color: #333;
+}
+
+.c-order-item input {
+    display: block;
+}
+
+.c-order-item:last-of-type {
+    border-bottom: 0;
+}
+
+.c-order-item .iright {
+    margin-top: 16px;
+    margin-right: 16px;
+}
+
+.c-order-change-info {
+    border-top: 1px solid #e7e7e7;
+    border-bottom: 1px solid #e7e7e7;
+    margin-bottom: 20px;
+    padding-left: 15px;
+    background-color: #fff;
+}
+
+.c-order-item-label {
+    display: block;
+    width: 80px;
+}
+
+.c-order-item input::-webkit-input-placeholder {
+    display: inline-block;
+    color: #ddd;
+}
+
+.c-order-item input:-moz-placeholder {
+    display: inline-block;
+    color: #ddd;
+}
+
+.c-order-item input:-ms-input-placeholder {
+    display: inline-block;
+    color: #ddd;
+}
+
+.c-order-item input::-moz-placeholder {
+    display: inline-block;
+    color: #ddd;
+}
+
+.c-order-date-placeholder {
+    position: absolute;
+    top: 0;
+    left: 80px;
+    color: #ddd;
+}
+
+.c-order-service-input {
+    margin-top: 12px;
+    height: 21px;
+    line-height: 21px;
+    text-align: left;
+}

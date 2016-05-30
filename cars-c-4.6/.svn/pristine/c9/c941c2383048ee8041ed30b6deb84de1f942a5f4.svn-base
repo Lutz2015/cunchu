@@ -1,0 +1,31 @@
+define("template/mycar", function() {
+  // template/mycar.dust
+  (function() {
+    dust.register("template/mycar", body_0);
+
+    function body_0(chk, ctx) {
+      return chk.w("<ul class=\"j-user-car-list c-user-mycar-list\"></ul><div class=\"j-add-user-car c-add-user-car\"><p class=\"c-add-user-car-word\"><i class=\"icar-plus c-add-icon\"></i><span class=\"c-add-icon-text\">继续添加爱车</span></p></div><div class=\"c-add-user-car-empty\"><i class=\"iempty-car-logo\"></i><p class=\"c-empty-car-text1\">车库空空的 ~</p><p class=\"j-add-user-car c-add-user-car-word\"><i class=\"icar-plus-white c-add-icon\"></i><span class=\"c-add-icon-text\">添加我的爱车</span></p><p class=\"c-empty-car-text2\">为了更好的服务体验，请如实选择您的车辆型号</p></div>");
+    }
+    body_0.__dustBody = !0;
+    return body_0;
+  })();
+  return function(locals, callback) {
+    var rendered;
+
+    dust.render("template/mycar", locals, function(err, result) {
+      if (typeof callback === "function") {
+        try {
+          callback(err, result);
+        } catch (e) {}
+      }
+
+      if (err) {
+        throw err
+      } else {
+        rendered = result;
+      }
+    });
+
+    return rendered;
+  }
+});

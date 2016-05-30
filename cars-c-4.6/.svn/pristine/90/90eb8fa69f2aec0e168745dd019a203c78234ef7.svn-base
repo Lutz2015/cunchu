@@ -1,0 +1,5 @@
+define(function () {
+	// widget/dialog/html/dialog.dust
+	(function(){dust.register("widget/dialog/html/dialog",body_0);function body_0(chk,ctx){return chk.write("<div class=\"c-dialog j-dialog animated bounceInDown\">").exists(ctx.get("hasHead"),ctx,{"block":body_1},null).write("<div class=\"c-dialog-content j-dialog-content\"></div><div class=\"c-dialog-footer ").exists(ctx.get("hasCancel"),ctx,{"block":body_2},null).write("\">").exists(ctx.get("hasCancel"),ctx,{"block":body_3},null).write("<span class=\"c-dialog-confirm j-dialog-confirm\">").reference(ctx.get("confirm"),ctx,"h").write("</span></div></div>");}function body_1(chk,ctx){return chk.write("<div class=\"c-dialog-header\">").reference(ctx.get("title"),ctx,"h").write("</div>");}function body_2(chk,ctx){return chk.write("c-dialog-hascancel");}function body_3(chk,ctx){return chk.write("<span class=\"c-dialog-cancel j-dialog-cancel\">取消</span>");}return body_0;})();
+	return "widget/dialog/html/dialog";
+});

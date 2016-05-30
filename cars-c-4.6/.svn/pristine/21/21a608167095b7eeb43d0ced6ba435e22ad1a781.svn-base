@@ -1,0 +1,59 @@
+/**
+* @file
+* @author sundi
+* @version 1.0
+* @desc reset css
+*/
+/*reset css begin*/
+
+html,
+button,
+input,
+select,
+textarea {
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: #666;
+}
+
+p,
+body,
+span {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    vertical-align: middle;
+}
+
+fieldset,
+label,
+input {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+ul,
+ol,
+li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+input {
+    border: none;
+    border-radius: 0;
+    appearance: none;
+    -webkit-appearance: none;
+}
+/*reset css end*/

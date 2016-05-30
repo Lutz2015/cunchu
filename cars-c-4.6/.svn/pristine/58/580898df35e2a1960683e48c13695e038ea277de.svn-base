@@ -1,0 +1,1 @@
+define(function(){return function(){function a(a,b){return a.write('<ul class="j-user-car-list"></ul><div class="j-add-user-car c-add-user-car"><p class="c-add-user-car-word"><i class="icar-plus c-add-icon"></i><span class="c-add-icon-text">选择其他车辆</span></p></div>')}return dust.register("template/car",a),a}(),"template/car"});

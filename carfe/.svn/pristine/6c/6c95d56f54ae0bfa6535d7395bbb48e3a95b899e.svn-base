@@ -1,0 +1,48 @@
+/*reset css begin*/
+
+html,
+button,
+input,
+select,
+textarea {
+    color: #808080;
+}
+
+a {
+    text-decoration: none;
+    color: #808080;
+}
+
+p,
+body,
+span {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    vertical-align: middle;
+}
+
+fieldset,
+label {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+ul, ol, li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+input {
+    /*border: none;*/
+}
+
+/*reset css end*/

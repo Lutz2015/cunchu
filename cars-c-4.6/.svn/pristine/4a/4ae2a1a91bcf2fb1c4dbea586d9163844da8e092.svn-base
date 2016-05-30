@@ -1,0 +1,68 @@
+.c-home-sublist-title {
+    padding-left: 15px;
+    height: 40px;
+    font-size: 16px;
+    line-height: 40px;
+    color: #999;
+}
+
+#homecontent .c-home {
+    margin-bottom: 40px;
+}
+
+.c-home-sublist {
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid #e5e5e5;
+    padding-left: 20px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #fff;
+    color: #656565;
+}
+
+.c-home-sublist-delete {
+    height: 0;
+    transition: height .3s linear 0s;
+    -webkit-transition: height .3s linear 0s;
+}
+
+.c-home-sublist:last-of-type {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.c-home-btn-delete {
+    position: absolute;
+    top: 0;
+    right: -70px;
+    padding: 11px;
+    width: 18px;
+    height: 18px;
+    line-height: 0;
+    transition: right .1s linear 0s;
+    -webkit-transition: right .1s linear 0s;
+}
+
+.c-home-delete .c-home-btn-delete {
+    right: 0;
+    transition: right .1s linear 0s;
+    -webkit-transition: right .1s linear 0s;
+}
+
+.c-home-sublist-carinfo {
+    float: left;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.c-home-delete .c-home-sublist-carinfo {
+    width: calc(100% - 40px);
+    margin-right: 20px;
+}
+
+.c-home-to-login-tip {
+    margin-top: 30px;
+    text-align: center;
+}

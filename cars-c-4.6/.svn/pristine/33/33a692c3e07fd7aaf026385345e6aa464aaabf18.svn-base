@@ -1,0 +1,16 @@
+<div class="c-shop-container j-shop-container">
+    <ul class="c-shop-list j-shop-list">
+        {#result}
+            <li class="c-shop-content">
+                <a class="j-shop-box" data-sp_no="{sp_no}" data-sp_address="{sp_address}" data-sp_name="{sp_name}" data-business_time="{business_time}" data-hotline="{hotline}" data-coordinate_x="{coordinate_x}" data-coordinate_y="{coordinate_y}">
+                    <p class="c-shop-name">
+                        <span>{sp_name}</span>
+                    </p>
+                    <p class="c-shop-address">
+                        <span>{sp_address}</span>
+                    </p>
+                </a>
+            </li>
+        {/result}
+    </ul>
+</div>

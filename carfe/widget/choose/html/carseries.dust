@@ -1,0 +1,14 @@
+<div class="c-choose-tab">
+    <ul class="c-tab-hotseries j-hotseries" data-bid="{bid}">
+        {#result}
+            <li class="c-tab-item {@if cond="{$idx} == 0"}series-select{/if}" data-key="{key}">{key}</li>
+        {/result}
+    </ul>
+    {#result}
+         <div class="c-tab-carseries j-tab-carseries {@if cond="{$idx} == 0"}carseries-select{/if}"">
+             {#cars}
+                 <span class="car-series" data-sid="{sid}" data-sname="{sname}">{sname}</span>
+             {/cars}
+         </div>
+     {/result}
+</div>

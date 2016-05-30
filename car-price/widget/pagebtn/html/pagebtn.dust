@@ -1,0 +1,17 @@
+<div class="c-w-pagebtn">
+    {?showLeft}
+        <div class="c-w-pagebtn-goleft j-w-pagebtn-goleft">
+            <i class="ileft"></i>
+        </div>
+    {/showLeft}
+    {#result}
+        <div class="c-w-pagebtn-item j-w-pagebtn-item {?checked}checked{/checked}" data-num="{num}">
+            {num}
+        </div>
+    {/result}
+    {?showRight}
+        <div class="c-w-pagebtn-goright j-w-pagebtn-goright">
+            <i class="iright"></i>
+        </div>
+    {/showRight}
+</div>

@@ -1,0 +1,25 @@
+<table class="c-addcare-tab" cellspacing="0" cellpadding="0">
+        <thead class="c-addcare-thead">
+            <tr><th><span class="c-series-span">选择</span></th><th><span class="c-series-span">保养方案</span></th><th><span class="c-series-span">发动机类型</th><th><span class="c-series-span">变数箱类型</span></th><th><span class="c-series-span">排量</span></th><th><span class="c-series-span">驱动方式</span></th><th><span class="c-series-span">缸数</span></th><th><span class="c-series-span">操作</span></th></tr>
+        </thead>
+                <tbody class="c-addcare-tbody j-addcare-tbody">
+                {#result}
+                    <tr>
+                        <td>
+                            <input type="radio" name="rcars" class="c-addcare-radio j-addcare-radio">
+                            <input type="hidden" name="cid" value="{cid}"/>
+                        </td>
+                        <td><span class="c-series-span j-series-cname" data-cname="{cname}">{cname}</span></td>
+                                        <td><span class="c-series-span j-series-cengine" data-cengine="{cengine}">{cengine_name}</span></td>
+                                        <td><span class="c-series-span j-series-cgearbox" data-cgearbox="{cgearbox}">{cgearbox_name}</span></td>
+                                        <td><span class="c-series-span j-series-cdisplacement" data-cdisplacement="{cdisplacement}">{cdisplacement}</span></td>
+                                        <td><span class="c-series-span j-series-cdriving" data-cdriving="{cdriving}">{cdriving_name}</span></td>
+                                        <td><span class="c-series-span j-series-ccylinder" data-ccylinder="{ccylinder}">{ccylinder}</span></td>
+                                        <td>
+                                            <span class="c-series-span {@if cond="{hasSolution} == 0"}hide{/if}" data-cid="{cid}"><a class="c-download j-download">下载</a><a class="c-edit j-edit">编辑</a></span>
+                                            <span class="c-series-span {@if cond="{hasSolution} == 1"}hide{/if}" data-cid="{cid}"><a class="c-uploading j-uploading">上传文件</a></span>
+                                        </td>
+                    </tr>
+                {/result}
+        </tbody>
+</table>

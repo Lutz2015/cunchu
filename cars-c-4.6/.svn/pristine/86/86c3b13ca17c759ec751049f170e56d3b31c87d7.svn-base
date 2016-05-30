@@ -1,0 +1,34 @@
+{
+    "themeid": "modern",
+    "dev": {
+        "url": "",
+        "version": 0,
+        "port": 8888,
+        "apiurl": "http://cq01-rdqa-dev039.cq01.baidu.com:8289",
+        "cloudaurl": "http://fedev.baidu.com/~dingquan/clouda-rd/test/lightapp.js",
+        "appid": "7184680",
+        "carlogo": "http://developer.baidu.com/static/chuilei/car/",
+        "fordemo": "0",
+        "apptype": "{%$apptype%}"
+    },
+    "release": {
+        "url": "/modern",
+        "apiurl": "",
+        "cloudaurl": "http://fedev.baidu.com/~dingquan/clouda-rd/test/lightapp.js",
+        "appid": "{%$appid%}",
+        "carlogo": "http://developer.baidu.com/static/chuilei/car/",
+        "fordemo": "{%$fordemo%}",
+        "apptype": "{%$apptype%}",
+        "payurl": "http://dbl-zhidahao-qa-all.epc.baidu.com:8173"
+    },
+    "online": {
+        "url": "http://static.qyy.baidu.com/chuilei/static/modern",
+        "apiurl": "",
+        "cloudaurl": "http://apps.bdimg.com/cloudaapi/lightapp.js",
+        "appid": "{%$appid%}",
+        "carlogo": "http://developer.baidu.com/static/chuilei/car/",
+        "fordemo": "{%$fordemo%}",
+        "apptype": "{%$apptype%}",
+        "payurl": "http://m.baidu.com"
+    }
+}

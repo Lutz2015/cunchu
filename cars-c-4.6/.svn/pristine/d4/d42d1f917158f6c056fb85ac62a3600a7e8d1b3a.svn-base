@@ -1,0 +1,8 @@
+#orderdetailfoot{
+	height: 50px;
+    background-color: #fff;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    line-height: 50px;
+}

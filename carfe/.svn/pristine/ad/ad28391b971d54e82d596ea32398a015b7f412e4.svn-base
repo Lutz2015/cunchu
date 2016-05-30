@@ -1,0 +1,11 @@
+<ul class="c-newcare-content">
+    <li class="c-newcare-item">
+        <label class="c-newcare-lab">保养项目:</label>
+        <input class="c-newcare c-newcare-caname j-newcare-caname" name="caname" value="{caname}" placeholder="请输入保养名称"/>
+        <span class="c-newcare-check j-newcare-check hide">请输入保养项目</span>
+    </li>
+    <li class="c-newcare-item">
+        <label class="c-newcare-lab">配件类型:</label>
+        <input class="c-newcare c-newcare-capart j-newcare-capart" name="capart" value="{capart}" placeholder="请输入配件类型"/>
+    </li>
+</ul>

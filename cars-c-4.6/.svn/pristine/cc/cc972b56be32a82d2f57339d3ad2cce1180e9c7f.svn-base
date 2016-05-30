@@ -1,0 +1,51 @@
+define("template/addcar", function() {
+  // template/addcar.dust
+  (function() {
+    dust.register("template/addcar", body_0);
+
+    function body_0(chk, ctx) {
+      return chk.w("<div class=\"c-addcar-box\"><div class=\"c-addcar-info-car j-addcar-select-car flex-container\" data-cid=\"").f(ctx.get(["cid"], false), ctx, "h").w("\" data-ucid=\"").f(ctx.get(["ucid"], false), ctx, "h").w("\"><label class=\"c-addcar-label\">车辆型号</label><div class=\"c-addcar-car-name flex-auto1\">").f(ctx.get(["cname"], false), ctx, "h").w("</div><div class=\"c-addcar-car-name-box\"><i class=\"iright\"></i></div></div><div class=\"c-addcar-info flex-container\"><label class=\"c-addcar-label\">车牌号码</label><span class=\"c-addcar-uccode1 j-addcar-uccode1 flex-auto1\"><span class=\"j-addcar-uccode1-text\">").f(ctx.get(["uccode1"], false), ctx, "h").w("</span><i class=\"idown\"></i></span><input class=\"c-addcar-uccode2 flex-auto3\" value=\"").f(ctx.get(["uccode2"], false), ctx, "h").w("\" placeholder=\"请输入车牌号\"></div><div class=\"c-addcar-info flex-container\"><label class=\"c-addcar-label\">购买日期</label><div class=\"c-date-placeholder ").x(ctx.get(["ucdate"], false), ctx, {
+        "block": body_1
+      }, {}).w("\">请选择购买日期</div><input type=\"date\" class=\"j-addcar-date c-addcar-date flex-auto1\" value=\"").f(ctx.get(["ucdate"], false), ctx, "h").w("\"><i class=\"iright\"></i></div></div>").x(ctx.get(["ucid"], false), ctx, {
+        "else": body_2,
+        "block": body_3
+      }, {});
+    }
+    body_0.__dustBody = !0;
+
+    function body_1(chk, ctx) {
+      return chk.w("hide");
+    }
+    body_1.__dustBody = !0;
+
+    function body_2(chk, ctx) {
+      return chk.w("<div class=\"c-addcar-submit j-addcar-submit\">确认添加</div>");
+    }
+    body_2.__dustBody = !0;
+
+    function body_3(chk, ctx) {
+      return chk.w("<div class=\"c-addcar-submit j-addcar-submit\">保存</div><div class=\"c-addcar-delete j-addcar-delete\">删除车辆</div>");
+    }
+    body_3.__dustBody = !0;
+    return body_0;
+  })();
+  return function(locals, callback) {
+    var rendered;
+
+    dust.render("template/addcar", locals, function(err, result) {
+      if (typeof callback === "function") {
+        try {
+          callback(err, result);
+        } catch (e) {}
+      }
+
+      if (err) {
+        throw err
+      } else {
+        rendered = result;
+      }
+    });
+
+    return rendered;
+  }
+});

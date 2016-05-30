@@ -1,0 +1,1 @@
+define(function(require,exports,module){var a=function(){console.log(1)};module.exports={init:a}});

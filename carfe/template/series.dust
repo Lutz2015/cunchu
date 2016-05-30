@@ -1,0 +1,16 @@
+<div class="j-addcare-choose"></div>
+<div class="c-addcare-content">
+    <div class="c-addcare-menu">
+        <div class="c-btn-group j-group-create hide"><button class="btn btn-action-create j-action-create">新建</button>
+            <div class="j-box-create"></div>
+        </div>
+        <div class="c-btn-group j-btn-group hide"><button class="btn btn-action-create j-action-amend">修改</button>
+             <div class="j-box-amend"></div>
+        </div>
+        <div class="c-btn-group j-btn-group hide"><button class="btn btn-action-create j-action-del">删除</button>
+            <div class="j-box-del"></div>
+        </div>             </div>
+    <div class="c-addcare-baoyang j-search-baoyang"></div>
+    <div class="j-box-edit"></div>
+    <div class="j-box-uploading"></div>
+</div>

@@ -1,0 +1,31 @@
+define("template/car", function() {
+  // template/car.dust
+  (function() {
+    dust.register("template/car", body_0);
+
+    function body_0(chk, ctx) {
+      return chk.w("<ul class=\"j-user-car-list\"></ul><div class=\"j-add-user-car c-add-user-car\"><p class=\"c-add-user-car-word\"><i class=\"icar-plus c-add-icon\"></i><span class=\"c-add-icon-text\">选择其他车辆</span></p></div>");
+    }
+    body_0.__dustBody = !0;
+    return body_0;
+  })();
+  return function(locals, callback) {
+    var rendered;
+
+    dust.render("template/car", locals, function(err, result) {
+      if (typeof callback === "function") {
+        try {
+          callback(err, result);
+        } catch (e) {}
+      }
+
+      if (err) {
+        throw err
+      } else {
+        rendered = result;
+      }
+    });
+
+    return rendered;
+  }
+});

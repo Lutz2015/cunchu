@@ -1,0 +1,50 @@
+<div class="c-img-slider j-img-slider">
+    <section class="slider" id="slider">
+        <ul class="c-img-slider-list">
+            {#result.carousel}
+            <li class="c-img-slider-item">
+                <a href="{url}">
+                    <img class="carsbanner" data-src="http://developer.baidu.com/static/bannercars.png" src="{pic_url}">
+                </a>
+            </li>
+            {/result.carousel}
+        </ul>
+    </section>
+</div>
+
+<div class="c-nav-box flex-container">
+    <div class="flex-auto1"></div>
+
+    <a style="display:block;" class="c-left-maintain j-left-maintain" data-islogin="{islogin}" href="javascript:void(0);">
+        <div class="c-nav-item j-nav-maintenance">
+            <img class="circle-icon" src="http://developer.baidu.com/static/leftbaoyang.png">
+            <span class="c-nav-item-text">预约保养</span>
+        </div>
+    </a>
+
+    <div class="flex-auto1 j-nav-width"></div>
+    <a style="display:block;" class="c-right-newcar j-right-newcar" data-islogin="{islogin}" href="javascript:void(0);">
+        <div class="c-nav-item">
+            <img class="circle-icon" src="http://developer.baidu.com/static/newcarright.png">
+            <span class="c-nav-item-text">优惠购车</span>
+        </div>
+    </a>
+
+    <div class="flex-auto1"></div>
+</div>
+<div class="c-nav-line"></div>
+{#result}
+<div class="c-nav-tel-box">
+    <a class="c-nav-tel" href="javascript:void(0);">
+        <span>联系我们</span>
+    </a>
+</div>
+{/result}
+
+<div data-islogin="{islogin}" class="personalCenter">
+    <div class="personalCenterPar">
+        <!-- <span class="c-center-icon c-center-icon-login"></span>  -->
+        <img class="c-center-icon-login" src="http://developer.baidu.com/static/loginpeolple.png">
+        <span class="c-center-text">个人中心</span>
+    </div>
+</div>

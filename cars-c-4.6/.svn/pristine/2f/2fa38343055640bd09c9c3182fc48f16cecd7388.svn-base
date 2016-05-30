@@ -1,0 +1,313 @@
+define(function (require, exports, module) {
+    var dust = window.dust;
+    var sharp = window.sharp;
+    if (sharp.isBox) {
+        var headHeight = 0;
+    } else {
+        var headHeight = 45;
+    }
+
+    function getData(options) {
+        var d = new $.Deferred();
+
+        var data = options.data;
+        if (!_isFromMyCar) {
+            data || (data = {});
+            data.aid = appid;
+        }
+
+        sharp.get({
+            url: options.url,
+            data: data,
+            success: function (data) {
+                d.resolve(data.result);
+            }
+        });
+
+        return d;
+    }
+
+    function getSeries(bid) {
+        return getData({
+            url: sharpApi.getSeriesList,
+            data: {bid: bid}
+        });
+    }
+
+    var carWords = [];
+    var keys = {};
+    var carWordsOffsetTop = window.carWordsOffsetTops = [];
+    function resize() {
+        for (var i = 0; i < carWords.length; i ++) {
+            var key = carWords[i];
+            keys[key] = i;
+            carWordsOffsetTop[i] = {key: key, top: (Number($('.j-car-word-' + key).offset().top) - headHeight)};
+        }
+    };
+
+    function getBrand() {
+        var brands = getData({
+            url: sharpApi.getBrandList
+        });
+        var d = new $.Deferred();
+        brands.then(function (data) {
+            var len = data.length;
+            carWords = [];
+            for (var i = 0; i < len; i++) {
+                carWords.push(data[i].key);
+            }
+            d.resolve(data);
+        });
+        return d;
+    }
+
+    function getModel(sid) {
+        return getData({
+            url: sharpApi.getCarList,
+            data: {sid: sid}
+        });
+    }
+
+    function renderMultiple(options) {
+        if (options.type === 1) {
+            renderBrand(options);
+        } else if (options.type === 2) {
+            renderSeries(options);
+        } else if (options.type === 3) {
+            renderModel(options);
+        }
+    }
+
+    function renderModel(options) {
+        var elem = $(options.dom);
+        if (sharp.carModels) {
+            require('widget/car/html/model');
+            dust.render('widget/car/html/model', {result: sharp.carModels}, function (error, out) {
+                elem.html(out);
+                bindModelEvent();
+            });
+        } else {
+            var otherInfo = sharp.getLocalData('otherInfo');
+            if (sharp.getLocalData('changeOldCar')) {
+                var sid = otherInfo.newCar.sid;
+            } else {
+                var sid = otherInfo.currentCar.sid;
+            }
+            var model = getModel(sid);
+            model.then(function (model) {
+                require('widget/car/html/model');
+                dust.render('widget/car/html/model', {result: model}, function (error, out) {
+                    elem.html(out);
+                    bindModelEvent();
+                });
+            });
+        }
+    }
+
+    function bindModelEvent() {
+        $('.j-car-model').on('click', function (e) {
+            var elem = $(this);
+            var otherInfo = sharp.getLocalData('otherInfo');
+            if (sharp.getLocalData('changeOldCar')) {
+                var currentCar = otherInfo.newCar;
+                sharp.setLocalData('changeOldCar', 2);
+            } else {
+                var currentCar = otherInfo.currentCar;
+            }
+            currentCar.cid = elem.data('id');
+            currentCar.ccode = elem.data('ccode');
+            currentCar.cname = elem.data('name');
+            currentCar.dkm = elem.data('dkm');
+            currentCar.skm = elem.data('skm');
+            sharp.setLocalData('otherInfo', otherInfo);
+
+            location.href = "#addcar/"
+        });
+    }
+
+    function renderSeries(options) {
+        var elem = $(options.dom);
+        if (sharp.carSeries) {
+            require('widget/car/html/series');
+            dust.render('widget/car/html/series', {result: sharp.carSeries}, function (error, out) {
+                elem.html(out);
+                bindSeriesEvent();
+            });
+        } else {
+            var otherInfo = sharp.getLocalData('otherInfo');
+            if (sharp.getLocalData('changeOldCar')) {
+                var bid = otherInfo.newCar.bid;
+            } else {
+                var bid = otherInfo.currentCar.bid;
+            }
+            var series = getSeries(bid);
+            series.then(function (series) {
+                require('widget/car/html/series');
+                dust.render('widget/car/html/series', {result: series}, function (error, out) {
+                    elem.html(out);
+                    bindSeriesEvent();
+                });
+            });
+        }
+    }
+
+    function bindSeriesEvent() {
+        $('.j-car-series').on('click', function (e) {
+            var elem = $(this);
+            var otherInfo = sharp.getLocalData('otherInfo');
+            if (sharp.getLocalData('changeOldCar')) {
+                var currentCar = otherInfo.newCar;
+            } else {
+                var currentCar = otherInfo.currentCar;
+            }
+            var sid = elem.data('id');
+            currentCar.sid = sid;
+            currentCar.sname = elem.data('name');
+            sharp.setLocalData('otherInfo', otherInfo);
+
+            var model = getModel(sid);
+            model.then(function (model) {
+                if (model.length == 0) {
+                    sharp.showError('暂无数据');
+                } else {
+                    sharp.carModels = model;
+                    location.href = "#modelselect/";
+                }
+            });
+        });
+    }
+
+    function renderBrand(options) {
+        if (_isFromMyCar) {
+            $('.c-car-nav').removeClass('hide');
+        } else {
+            $('.c-car-nav').addClass('hide');
+        }
+        var elem = $(options.dom);
+        var brand = getBrand();
+        brand.then(function (data) {
+            if (data.length > 0) {
+                $('.j-car-word-suspend').text(data[0].key);
+                require('widget/car/html/brand');
+                dust.render('widget/car/html/brand', {result: data, carLogo: carLogo}, function (error, out) {
+                    elem.html(out);
+                    bindBrandEvent(options);
+                    setTimeout(function () {
+                        resize();
+                    }, 300);
+                });
+            }
+        });
+    }
+
+    function bindBrandEvent(options) {
+        $('.j-car-brand').on('click', function (e) {
+            var elem = $(this);
+            var bid = elem.data('id');
+            var currentCar = {
+                bid: bid,
+                logo: elem.data('logo'),
+                bname: elem.data('name')
+            };
+            var otherInfo = sharp.getLocalData('otherInfo');
+            if (sharp.getLocalData('changeOldCar')) {
+                otherInfo.newCar = currentCar;
+            } else {
+                otherInfo.currentCar = currentCar;
+            }
+            sharp.setLocalData('otherInfo', otherInfo);
+
+            var series = getSeries(bid);
+            series.then(function (series) {
+                if (series.length == 0) {
+                    sharp.showError('暂无数据');
+                } else {
+                    sharp.carSeries = series;
+                    location.href = "#seriesselect/";
+                }
+            });
+        });
+
+        if (!_isFromMyCar) {
+            return false;
+        }
+        var contentElem = $(options.dom);
+        var currentWordkey = 0;
+        contentElem.on('scroll', scrollEvent);
+        contentElem.on('touchmove', scrollEvent);
+
+        function scrollEvent() {
+            var top = contentElem.scrollTop();
+            var currentWord = carWordsOffsetTop[currentWordkey];
+            var nextWord = carWordsOffsetTop[currentWordkey + 1];
+            var previousWord = carWordsOffsetTop[currentWordkey - 1];
+            var showWordElem = $('.c-car-word-suspend');
+
+            if (nextWord) {
+                if (top >= (nextWord.top - 22) && top < nextWord.top) {
+                    showWordElem.css('top', headHeight - (top + 22 - nextWord.top));
+                } else if (top >= nextWord.top) {
+                    showWordElem.text(nextWord.key);
+                    showWordElem.css('top', headHeight);
+                    currentWordkey++;
+                } else if (top > currentWord.top) {
+                    showWordElem.text(currentWord.key);
+                    showWordElem.css('top', headHeight);
+                }
+            }
+            if (previousWord) {
+                if (top <= (currentWord.top - 40)) {
+                    showWordElem.text(previousWord.key);
+                    showWordElem.css('top', headHeight);
+                    currentWordkey--;
+                } else if (top <= currentWord.top && top >= (currentWord.top - 22)) {
+                    showWordElem.text(previousWord.key);
+                    showWordElem.css('top', headHeight - (top + 22 - currentWord.top));
+                }
+            }
+        }
+
+        var timeoutCache;
+        $('.j-car-nav-word').on('click', function () {
+            if (timeoutCache) {
+                clearTimeout(timeoutCache);
+            }
+            var key = $(this).html();
+            var top = carWordsOffsetTop[keys[key]].top;
+            var height = contentElem.scrollTop();
+            if (top == height) {
+                return;
+            }
+
+            var easeOut = function (t, b, c, d) {
+                return c * ((t = t / d - 1) * Math.pow(t, 10) + 1) + b;
+            }
+
+            var t = 0;
+            var c = top - height;
+            var d = 40;
+
+            var fn = function () {
+                if (t < d) {
+                    t++;
+                    contentElem.scrollTop(Math.ceil(easeOut(t, height, c, d)));
+                    timeoutCache = setTimeout(fn, 25);
+                } else {
+                    contentElem.scrollTop(top);
+                }
+            };
+            fn();
+        });
+    }
+
+    var _isFromMyCar;
+
+    function _init(options) {
+        _isFromMyCar = sharp.getLocalData('isFromMyCar');
+        renderMultiple(options);
+    }
+
+    module.exports = {
+        init: _init
+    };
+});

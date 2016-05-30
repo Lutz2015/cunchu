@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="百度爱车后台内部管理平台"/>
+    <title>百度爱车后台内部管理平台</title>
+    <link rel="stylesheet" type="text/css" href="{url}/static/css/main.css?v={version}">
+</head>
+<body>
+<div class="c-main">
+    <div id="head"></div>
+    <div id="aside"></div>
+    <div id="content">
+        <div id="series" class="hide"></div>
+        <div id="care" class="hide"></div>
+    </div>
+</div>
+
+<div class="loading-n">
+    <img class="loading-img-n" src="http://developer.baidu.com/static/chuilei/loading.gif">
+    <div class="loading-text-n">加载中...</div>
+</div>
+<script type="text/javascript">
+        var logouturl = "{logouturl}";
+        var buname = "{buname}";
+        var version = "{version}";
+        var url = "{url}";
+        var apiurl = "{apiurl}";
+        var bdtoken = "{bdtoken}";
+        var appid = '{appid}';
+        var token = '{token}';
+        var islogin = "{islogin}";
+        var curl = '{curl}';
+</script>
+
+<script data-main="{url}/common/js/main.js?v={version}" src="{url}/common/lib/lib.js?v={version}" type="text/javascript" async="true" defer></script>
+</body>
+</html>

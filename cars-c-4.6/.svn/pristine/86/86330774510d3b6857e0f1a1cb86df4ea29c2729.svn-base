@@ -1,0 +1,81 @@
+define(function (require, exports, module) {
+    require('widget/uccode/html/uccode');
+    var dust = window.dust;
+    var sharp = window.sharp;
+    var words = ['京','津','沪','渝','冀','豫','云','辽','黑','湘','皖','鲁','新','苏','浙','赣','鄂','桂','甘','晋','蒙','陕','吉','闽','贵','粤','青','藏','川','宁','琼','使'];
+    var creenWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+
+    function render(options) {
+        var elem = $(options.appendDom);
+
+        dust.render('widget/uccode/html/uccode', {words: words, key: options.text}, function (error, out) {
+            elem.append(out);
+            if (/QQBrowser/.test(navigator.userAgent)) {
+                $('.c-uccode-submit').css('margin-bottom', '55px');
+            }
+            if (creenWidth > 400) {
+                $('.c-uccode-list-box').width(390);
+                $('.c-uccode-list').width(396);
+            } else if (creenWidth > 370) {
+                $('.c-uccode-list-box').width(354);
+                $('.c-uccode-list').width(360);
+            } else if (creenWidth > 340) {
+                $('.c-uccode-list-box').width(318);
+                $('.c-uccode-list').width(324);
+            } else {
+                $('.c-uccode-list-box').width(282);
+                $('.c-uccode-list').width(288);
+            }
+            bindEvent(options.callback);
+        });
+    }
+
+    function bindEvent(callback) {
+        var selectElem = $('.c-uccode-select');
+        selectElem
+            .addClass('animated bounceInUp')
+            .removeClass('bounceOutDown')
+            .on('touchmove', function (e) {
+                e.preventDefault();
+            });
+
+        $('.j-uccode-list').on('click', function (e) {
+            var item = $(e.target);
+            if (item.hasClass('c-uccode-item')) {
+                $('.c-uccode-item.check').removeClass('check');
+                item.addClass('check');
+            }
+        });
+
+        $('.j-uccode-submit').on('click', function (e) {
+            if (callback && $.isFunction(callback)) {
+                callback($('.c-uccode-item.check').text());
+                selectElem.addClass('bounceOutDown').removeClass('bounceInUp');
+                setTimeout(function () {
+                    selectElem.remove();
+                    $('.w-mask').remove();
+                }, 300);
+            }
+        });
+    }
+
+    /**
+     * @param  {object} options
+     */
+    function _init(options) {
+        var _callback = options.callback;
+        var uccodeElem = $('.c-uccode-select');
+        if (uccodeElem.length > 0) {
+            uccodeElem.addClass('animated bounceInUp').removeClass('bounceOutDown');
+            uccodeElem.show();
+        } else {
+            render(options);
+        }
+
+        sharp.maskToggle('.c-uccode-select', null, options.appendDom);
+    };
+
+    module.exports = {
+        init: _init,
+    };
+});

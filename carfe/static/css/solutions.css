@@ -1,0 +1,61 @@
+.c-solutions {
+    width: 800px;
+}
+
+.c-solutions-choose {
+    margin: 20px 10px;
+}
+
+.c-solutions-items {
+    display: inline-block;
+    height: 35px;
+    line-height: 35px;
+    margin-top: 10px;
+    margin-left: 30px;
+}
+
+.c-solutions-sel {
+    width: 120px;
+}
+.c-solutions-sup {
+    padding: 10px;
+    height: 300px;
+    overflow-y: auto;
+}
+
+.c-sup-content {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.c-basic-title,
+.c-all-title {
+    text-align: center;
+}
+
+.c-solutions-tab {
+    width: 340px;
+    border: solid #ccc;
+    border-width: 1px 0 0 1px;
+    text-align: center;
+}
+
+.j-solutions-basic {
+    width: 280px;
+    margin-right: 50px;
+}
+
+.c-solutions-thead {
+    height: 35px;
+    line-height: 35px;
+    background-color: #474F62;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+.c-solutions-span {
+    height: 30px;
+    line-height: 30px;
+    /*padding: 0 40px;*/
+}
+

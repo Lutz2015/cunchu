@@ -1,0 +1,199 @@
+define(function (require, exports, module) {
+    function Slider(_this, opts) {
+        this.$el = _this;
+        this.index = 0;
+        this.start = 0;
+        this.move = 0;
+        this.current = 0;
+        this.auto = null;
+        this.distance = 100;
+        this.$ul = this.$el.children('ul');
+        this.$li = this.$el.find('li');
+        this.$width = this.$li.width();
+        this.$length = this.$li.length;
+        this.orientation = 'onorientationchange' in window ? 'orientationchange' : 'resize';
+        this.defaults = {
+            autoplay: true,
+            timeout: 5000,
+            speed: .6,
+            indicator: true
+        }
+        this.options = $.extend({}, this.defaults, opts);
+        this.initialize.apply(this, arguments);
+    };
+
+    Slider.prototype = {
+        constructor: Slider,
+        initialize: function () {
+            this._create();
+            this._bindEvent();
+        },
+
+        _create: function () {
+            var self = this;
+            self.$ul.prepend(self.$li.last().clone()).append(self.$li.first().clone());
+            self._resize();
+            self._autoPlay();
+            self._createIndicator();
+            self._dot(self.index);
+        },
+        /* eslint-disable fecs-camelcase */
+        _resize: function () {
+            var self = this;
+            self._translate(self.$ul.children().first(), self.$width * -1);
+            self._translate(self.$ul.children().last(), self.$width * self.$length);
+            self.$li.each(function (i) {
+                self._translate($(this), self.$width * i);
+            });
+        },
+
+        _bindEvent: function () {
+            var self = this;
+            self.$el.on('touchstart', function (e) {
+                self._touches(e);
+                self._touchstart(e);
+            });
+            self.$el.on('touchmove', function (e) {
+                self._touches(e);
+                self._touchmove(e);
+            });
+            self.$el.on('touchend', function () {
+                self._touchend();
+            });
+
+            $(window).on(self.orientation, function () {
+                self.$width = $(window).width();
+                self._resize();
+                self._scroll(0);
+            });
+
+        },
+
+        _createIndicator: function () {
+            if (this.options.indicator) {
+                $('<div/>', {
+                    'class': 'indicator'
+                }).appendTo(this.$el);
+                for (var i = 0; i < this.$length; i++) {
+                    $('<span/>').appendTo($('.indicator'));
+                }
+            }
+        },
+
+        _dot: function (idx) {
+            if (this.options.indicator) {
+                $('.indicator').children().eq(idx).addClass('cur').siblings().removeClass('cur')
+            }
+        },
+
+        _transition: function (elem, n) {
+            elem.css({
+                '-webkit-transition': 'all ' + n + 's',
+                'transition': 'all ' + n + 's'
+            });
+        },
+
+        _translate: function (elem, n) {
+            elem.css({
+                '-webkit-transform': 'translate3d(' + n + 'px,0,0)',
+                'transform': 'translate3d(' + n + 'px,0,0)'
+            });
+        },
+
+        _moveLeft: function () {
+            this.index++;
+            this._move();
+        },
+
+        _moveRight: function () {
+            this.index--;
+            this._move();
+        },
+
+        _scroll: function (n) {
+            this._transition(this.$ul, n);
+            this._translate(this.$ul, -this.index * this.$width);
+        },
+
+        _move: function () {
+            var self = this;
+            if (self.index >= self.$length) {
+                self._scroll(self.options.speed);
+                self.index = 0;
+                setTimeout(function () {
+                    self._scroll(0);
+                }, 600);
+            } else if (self.index < 0) {
+                self._scroll(self.options.speed);
+                self.index = self.$length - 1;
+                setTimeout(function () {
+                    self._scroll(0);
+                }, 600);
+            } else {
+                self._scroll(self.options.speed);
+            }
+            self._dot(self.index);
+        },
+
+        _autoPlay: function () {
+            var self = this;
+            if (this.options.autoplay) {
+                self.auto = setInterval(function () {
+                    self._moveLeft();
+                }, self.options.timeout);
+            }
+        },
+
+        _touches: function (e) {
+            if (!e.touches) {
+                e.touches = e.originalEvent.touches;
+            }
+        },
+
+        _touchstart: function (e) {
+            this.start = e.touches[0].pageX;
+        },
+
+        _touchmove: function (e) {
+            e.preventDefault();
+            if (this.options.autoplay) {
+                clearInterval(this.auto);
+            }
+            this.current = e.touches[0].pageX;
+            this.move = this.current - this.start;
+            this._transition(this.$ul, 0);
+            this._translate(this.$ul, -(this.$width * (parseInt(this.index)) - this.move));
+        },
+
+        _touchend: function () {
+            var self = this;
+            clearInterval(self.auto);
+            if (Math.abs(this.move) <= this.distance) {
+                this._scroll(self.options.speed);
+                this._autoPlay();
+            } else {
+                if (this.move > this.distance) {
+                    this._moveRight();
+                    this._autoPlay();
+                } else if (this.move < -this.distance) {
+                    this._moveLeft();
+                    this._autoPlay();
+                }
+            }
+            this.move = 0;
+        }
+
+    };
+
+    function _init () {
+        $.extend($.fn, {
+            slider: function (option) {
+                return new Slider(this, option);
+            }
+        });
+    }
+
+    module.exports = {
+        init: _init
+    };
+});
